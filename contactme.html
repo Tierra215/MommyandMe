@@ -1,9 +1,8 @@
 <!-- 
 Author: Tierra Whitley
 Date: May 21, 2024
-File Name: template.html
-Description: This page consists of the template of the webpage.
-Developer comment: This is a basic template for the webpage including header, navigation, content, and footer sections. The pages will extend this template and fill in specific content.
+File Name: contactme.html
+Description: This page consists of contact information.
 -->
 
 <!DOCTYPE html>
@@ -11,21 +10,23 @@ Developer comment: This is a basic template for the webpage including header, na
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <meta name="description" content="Contact Information.">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* General styles for all pages */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Changed font to Comic Sans MS */
             background-color: #f5f5f5;
+            color: white; /* Set text color to white */
             margin: 0;
             padding: 0;
+            text-align: center; /* Center align all text */
         }
 
         /* Style headlines */
         h1, h2, h3 {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Changed font to Comic Sans MS */
+            color: white; /* Ensure headlines are also white */
             margin: 20px 0;
             text-align: center; /* Center align headlines */
         }
@@ -51,6 +52,7 @@ Developer comment: This is a basic template for the webpage including header, na
             margin: 0;
             background-color: #444;
             overflow: hidden;
+            text-align: center; /* Center align the navigation items */
         }
 
         nav ul li {
@@ -66,6 +68,11 @@ Developer comment: This is a basic template for the webpage including header, na
 
         nav ul li a:hover {
             background-color: #555;
+        }
+
+        /* Style main content */
+        main {
+            padding: 20px;
         }
 
         /* Style footer */
@@ -93,39 +100,41 @@ Developer comment: This is a basic template for the webpage including header, na
             color: #551a8b;
         }
     </style>
+    <title>Contact Me</title>
 </head>
 <body>
     <!-- Header section -->
     <header>
-        <!-- Developer comment: This is the header section containing the logo. -->
-        <img src="logo.png" alt="My Logo" class="center-logo">
+        <h1>Contact Me</h1>
+        <div class="center-logo">
+            <img src="logo.png" alt="Mommy and Me Clothing Brand Logo">
+        </div>
     </header>
 
     <!-- Navigation section -->
     <nav>
-        <!-- Developer comment: This is the navigation section with links to different pages. -->
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="aboutme.html">About Me</a></li>
             <li><a href="myinterests.html">My Interests</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contactme.html">Contact Me</a></li>
-            
-            
         </ul>
     </nav>
 
     <!-- Main content section -->
     <main>
-        <!-- Developer comment: This section is for the main content of the webpage. -->
+        <!-- Developer comment: This section will display contact information. -->
         <section>
-            <!-- Content to be added later -->
+            <h2>Contact Information</h2>
+            <!-- Replace this with your contact information -->
+            <p>Email: example@example.com</p>
+            <p>Phone: +1234567890</p>
         </section>
     </main>
 
     <!-- Footer section -->
     <footer>
-        <!-- Developer comment: This is the footer section containing links to privacy policy and terms of service. -->
         <nav>
             <ul>
                 <li><a href="privacy.html">Privacy Policy</a></li>
