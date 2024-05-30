@@ -1,4 +1,3 @@
-/* CSS styles */
 /* General styles for all pages */
 body {
     font-family: 'Arial', sans-serif;
@@ -31,7 +30,7 @@ header {
 
 /* Style navigation */
 nav {
-    text-align: center; /* Center align navigation links */
+    text-align: center; /* Center align navigation */
 }
 
 nav ul {
@@ -39,7 +38,7 @@ nav ul {
     padding: 0;
     margin: 0;
     background-color: #444;
-    display: inline-block; /* Make the navigation list inline-block */
+    display: inline-block; /* Center align the navigation list */
 }
 
 nav ul li {
@@ -47,7 +46,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white; /* Change link color to white */
+    color: white; /* Ensure link color is white */
     text-decoration: none;
     padding: 10px 20px;
     display: inline-block;
@@ -58,10 +57,9 @@ nav ul li a:hover {
     background-color: #555;
 }
 
-/* Ensure navigation links remain white when active */
 nav ul li a:active,
 nav ul li a:focus {
-    color: white;
+    color: white; /* Ensure the link color stays white */
 }
 
 /* Style footer */
