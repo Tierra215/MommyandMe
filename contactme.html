@@ -10,139 +10,39 @@ Description: This page consists of contact information.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Information.">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* General styles for all pages */
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Changed font to Comic Sans MS */
-            background-color: pink; /* Changed background color to pink */
-            color: white; /* Set text color to white */
-            margin: 0;
-            padding: 0;
-            text-align: center; /* Center align all text */
-        }
-
-        /* Style headlines */
-        h1, h2, h3 {
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Changed font to Comic Sans MS */
-            color: white; /* Ensure headlines are also white */
-            margin: 20px 0;
-            text-align: center; /* Center align headlines */
-        }
-
-        /* Style header */
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        /* Center the logo within the header */
-        .center-logo {
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Style navigation */
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            background-color: #444;
-            overflow: hidden;
-            text-align: center; /* Center align the navigation items */
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white; /* Change link color to white */
-            text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-        }
-
-        /* Style main content */
-        main {
-            padding: 20px;
-        }
-
-        /* Style footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-        }
-
-        /* Style anchor links */
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        a:visited {
-            color: #551a8b;
-        }
-    </style>
     <title>Contact Me</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header section -->
     <header>
-         <h1>Contact Me</h1>
-        <div class="center-logo">
-            <img src="logo.png" alt="Mommy and Me Clothing Brand Logo">
-        </div>
+        <h1>Contact Me</h1>
     </header>
-
-    <!-- Navigation section -->
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutme.html">About Me</a></li>
-        <li><a href="myinterests.html">My Interests</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contactme.html">Contact Me</a></li>
-    </ul>
-</nav>
-
-
-    <!-- Main content section -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about-me.html">About Me</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
     <main>
-        <!-- Developer comment: This section will display contact information. -->
-        <section>
-            <h2>Contact Information</h2>
-            <!-- Replace this with your contact information -->
-            <p>Email: example@example.com</p>
-            <p>Phone: +1234567890</p>
-        </section>
+        <form>
+            <div class="row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="row">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <div class="row">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
     </main>
-
-    <!-- Footer section -->
     <footer>
-        <nav>
-            <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-        </nav>
-        <p>&copy; 2024 Mommy and Me. All rights reserved.</p>
+        &copy; 2024 John Doe
     </footer>
 </body>
 </html>
