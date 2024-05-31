@@ -1,88 +1,118 @@
-/* General styles for all pages */
+/* General styles */
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: pink; /* Set background color to pink */
-    color: white; /* Set text color to white */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center; /* Center align all text */
 }
 
-/* Style headlines */
-h1, h2, h3 {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: white; /* Ensure headlines are also white */
-    margin: 20px 0;
-}
-
-/* Style header */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-}
-
-/* Center the logo within the header */
-.center-logo {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Style navigation */
-nav {
-    text-align: center; /* Center align navigation */
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    background-color: #444;
-    display: inline-block; /* Center align the navigation list */
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: white; /* Ensure link color is white */
-    text-decoration: none;
-    padding: 10px 20px;
-    display: inline-block;
-    font-weight: bold; /* Make the font bold */
-}
-
-nav ul li a:hover {
-    background-color: #555;
-}
-
-nav ul li a:active,
-nav ul li a:focus {
-    color: white; /* Ensure the link color stays white */
-}
-
-/* Style footer */
-footer {
-    background-color: #333;
-    color: white;
+header, nav, main, footer {
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
 }
 
-/* Style anchor links */
-a {
-    color: white; /* Set link color to white */
+nav a {
+    margin: 0 10px;
     text-decoration: none;
+    color: #333;
 }
 
-a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
-a:visited {
-    color: white; /* Ensure visited links remain white */
+/* Table styles for the About Me page */
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Gallery styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery .column {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.gallery .column img {
+    width: 100%;
+    height: auto;
+}
+
+/* Contact form styles */
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Homepage styles */
+.homepage .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.homepage .column {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* General responsive design */
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .homepage .row {
+        flex-direction: column;
+        align-items: center;
+    }
 }
