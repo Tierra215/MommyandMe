@@ -59,6 +59,13 @@ Description: This page consists of the gallery of images.
             margin: 10px;
         }
 
+        .thumbnail img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
         footer {
             margin-top: 20px;
         }
@@ -87,19 +94,31 @@ Description: This page consists of the gallery of images.
     </nav>
     <main class="gallery">
         <div class="column">
-            <img src="Images/image1.jpg" alt="Image 1"> <!-- Adjusted image source path -->
+            <a href="#img1" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image1_thumb.jpg" alt="Image 1 Thumbnail"></a>
         </div>
         <div class="column">
-            <img src="Images/image2.jpg" alt="Image 2"> <!-- Adjusted image source path -->
+            <a href="#img2" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image2_thumb.jpg" alt="Image 2 Thumbnail"></a>
         </div>
-        <!-- Add more images as needed -->
+        <div class="column">
+            <a href="#img3" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image3_thumb.jpg" alt="Image 3 Thumbnail"></a>
+        </div>
+
+        <div id="img1" class="popup">
+            <a href="#!" class="close">&times;</a>
+            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image1.jpg" alt="Image 1">
+        </div>
+        <div id="img2" class="popup">
+            <a href="#!" class="close">&times;</a>
+            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image2.jpg" alt="Image 2">
+        </div>
+        <div id="img3" class="popup">
+            <a href="#!" class="close">&times;</a>
+            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image3.jpg" alt="Image 3">
+        </div>
     </main>
     <footer>
         &copy; 2024 Mommy and Me
         <nav class="footer-nav">
             <a href="policy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-        </nav>
-    </footer>
-</body>
-</html>
+        </
