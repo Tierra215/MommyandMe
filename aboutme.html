@@ -1,6 +1,6 @@
 <!-- 
 Author: Tierra Whitley
-Date: May 21, 2024
+Date: May 31, 2024
 File Name: aboutme.html
 Description: This page consists of introducing the company, its history, and its mission.
 -->
@@ -11,30 +11,35 @@ Description: This page consists of introducing the company, its history, and its
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <!-- Importing the Comic Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Internal Styles -->
     <style>
+        /* CSS Styles */
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: pink;
-            color: white;
-            text-align: center;
+            background-color: pink; /* Background color set to pink */
+            color: white; /* Text color set to white */
+            text-align: center; /* Text alignment centered */
             margin: 0;
             padding: 0;
         }
         
+        /* Header and Footer Styles */
         .logo {
             display: block;
             margin: 0 auto;
         }
         
         header, footer {
-            background-color: #333;
+            background-color: #333; /* Background color for header and footer */
             padding: 10px 0;
             color: white;
         }
         
+        /* Navigation Styles */
         nav a {
             color: black;  /* Change link color to black */
             text-decoration: none;
@@ -45,6 +50,7 @@ Description: This page consists of introducing the company, its history, and its
             text-decoration: underline;  /* Add underline on hover */
         }
         
+        /* Main Content Styles */
         main table {
             margin: 20px auto;
             width: 80%;
@@ -66,6 +72,7 @@ Description: This page consists of introducing the company, its history, and its
             color: white; /* Keep table header text white */
         }
 
+        /* Footer Navigation Styles */
         .footer-nav a {
             margin: 0 10px;
             color: black; /* Set footer links color to black */
@@ -77,10 +84,12 @@ Description: This page consists of introducing the company, its history, and its
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <img src="logo.png" alt="Logo" class="logo">
         <h1>About Me</h1>
     </header>
+    <!-- Navigation Section -->
     <nav>
         <a href="index.html">Home</a>
         <a href="aboutme.html">About Me</a>
@@ -88,7 +97,9 @@ Description: This page consists of introducing the company, its history, and its
         <a href="gallery.html">Gallery</a>
         <a href="contactme.html">Contact Me</a>
     </nav>
+    <!-- Main Content Section -->
     <main>
+        <!-- Introduction Table -->
         <table>
             <thead>
                 <tr>
@@ -112,8 +123,10 @@ Description: This page consists of introducing the company, its history, and its
             </tbody>
         </table>
     </main>
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Mommy and Me</p>
+        <!-- Footer Navigation -->
         <nav class="footer-nav">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
