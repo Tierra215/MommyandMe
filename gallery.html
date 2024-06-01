@@ -45,17 +45,14 @@ Description: This page consists of the gallery of images.
             text-decoration: underline;  /* Add underline on hover */
         }
 
-        main {
+        .gallery {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
-        .column {
-            flex: 1;
-            padding: 20px;
-            background-color: #444;
+        .thumbnail {
             margin: 10px;
         }
 
@@ -93,27 +90,28 @@ Description: This page consists of the gallery of images.
         <a href="contactme.html">Contact Me</a>
     </nav>
     <main class="gallery">
-        <div class="column">
-            <a href="#img1" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image1_thumb.jpg" alt="Image 1 Thumbnail"></a>
+        <!-- Developer comment: Adding an image gallery with thumbnails -->
+        <div class="thumbnail">
+            <a href="#img1"><img src="Images/image1_thumb.jpg" alt="Thumbnail 1"></a>
         </div>
-        <div class="column">
-            <a href="#img2" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image2_thumb.jpg" alt="Image 2 Thumbnail"></a>
+        <div class="thumbnail">
+            <a href="#img2"><img src="Images/image2_thumb.jpg" alt="Thumbnail 2"></a>
         </div>
-        <div class="column">
-            <a href="#img3" class="thumbnail"><img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image3_thumb.jpg" alt="Image 3 Thumbnail"></a>
+        <div class="thumbnail">
+            <a href="#img3"><img src="Images/image3_thumb.jpg" alt="Thumbnail 3"></a>
         </div>
 
         <div id="img1" class="popup">
             <a href="#!" class="close">&times;</a>
-            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image1.jpg" alt="Image 1">
+            <img src="Images/image1.jpg" alt="Image 1">
         </div>
         <div id="img2" class="popup">
             <a href="#!" class="close">&times;</a>
-            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image2.jpg" alt="Image 2">
+            <img src="Images/image2.jpg" alt="Image 2">
         </div>
         <div id="img3" class="popup">
             <a href="#!" class="close">&times;</a>
-            <img src="C:/Users/tierr/OneDrive/Desktop/FPX 3240 MASTER/Images/image3.jpg" alt="Image 3">
+            <img src="Images/image3.jpg" alt="Image 3">
         </div>
     </main>
     <footer>
@@ -121,4 +119,7 @@ Description: This page consists of the gallery of images.
         <nav class="footer-nav">
             <a href="policy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-        </
+        </nav>
+    </footer>
+</body>
+</html>
