@@ -36,9 +36,13 @@ Description: This page consists of the index.
         }
         
         nav a {
-            color: white;
+            color: black;  /* Change link color to black */
             text-decoration: none;
             margin: 0 10px;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;  /* Add underline on hover */
         }
         
         .homepage .row {
@@ -56,6 +60,11 @@ Description: This page consists of the index.
         
         .footer-nav a {
             margin: 0 10px;
+            color: white; /* Ensure footer links remain white */
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;  /* Add underline on hover */
         }
     </style>
 </head>
