@@ -116,3 +116,20 @@ input, textarea, button {
         align-items: center;
     }
 }
+/* Before */
+.thumbnail img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* After */
+.thumbnail img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border: 2px solid white;
+    /* Updated path to point to the images in the 'images' subfolder */
+    src: url("images/image1_thumb.jpg");
+}
