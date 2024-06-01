@@ -1,6 +1,6 @@
 <!-- 
 Author: Tierra Whitley
-Date: May 21, 2024
+Date: May 31, 2024
 File Name: gallery.html
 Description: This page consists of the gallery of images.
 -->
@@ -26,7 +26,7 @@ Description: This page consists of the gallery of images.
         
         .logo {
             display: block;
-            margin: 20px auto 0;
+            margin: 20px auto 0; /* Adjusted margin */
         }
         
         header, footer {
@@ -36,53 +36,27 @@ Description: This page consists of the gallery of images.
         }
         
         nav a {
-            color: black;
+            color: black;  /* Change link color to black */
             text-decoration: none;
             margin: 0 10px;
         }
         
         nav a:hover {
-            text-decoration: underline;
+            text-decoration: underline;  /* Add underline on hover */
         }
 
-        .gallery {
+        main {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .thumbnail {
-            margin: 10px;
-        }
-
-        .thumbnail img {
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-            border: 2px solid white;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            text-align: center;
+            height: 100vh;
         }
 
-        .popup img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .popup:target {
-            display: flex;
+        .column {
+            flex: 1;
+            padding: 20px;
+            background-color: #444;
+            margin: 10px;
         }
 
         footer {
@@ -91,17 +65,17 @@ Description: This page consists of the gallery of images.
 
         .footer-nav a {
             margin: 0 10px;
-            color: black;
+            color: black; /* Footer navigation links color changed to black */
         }
 
         .footer-nav a:hover {
-            text-decoration: underline;
+            text-decoration: underline;  /* Add underline on hover */
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="Logo" class="logo"> <!-- Logo placed above the header -->
         <h1>Gallery</h1>
     </header>
     <nav>
@@ -112,29 +86,13 @@ Description: This page consists of the gallery of images.
         <a href="contactme.html">Contact Me</a>
     </nav>
     <main class="gallery">
-        <!-- Developer comment: Adding an image gallery with thumbnails that open a larger image in a pop-up window. -->
-        <div class="thumbnail">
-            <a href="#img1"><img src="image1_thumb.jpg" alt="Description of Image 1"></a>
+        <div class="column">
+            <img src="Images/image1.jpg" alt="Image 1"> <!-- Adjusted image source path -->
         </div>
-        <div class="thumbnail">
-            <a href="#img2"><img src="image2_thumb.jpg" alt="Description of Image 2"></a>
+        <div class="column">
+            <img src="Images/image2.jpg" alt="Image 2"> <!-- Adjusted image source path -->
         </div>
-        <div class="thumbnail">
-            <a href="#img3"><img src="image3_thumb.jpg" alt="Description of Image 3"></a>
-        </div>
-
-        <div id="img1" class="popup">
-            <a href="#!" class="close">&times;</a>
-            <img src="image1.jpg" alt="Description of Image 1">
-        </div>
-        <div id="img2" class="popup">
-            <a href="#!" class="close">&times;</a>
-            <img src="image2.jpg" alt="Description of Image 2">
-        </div>
-        <div id="img3" class="popup">
-            <a href="#!" class="close">&times;</a>
-            <img src="image3.jpg" alt="Description of Image 3">
-        </div>
+        <!-- Add more images as needed -->
     </main>
     <footer>
         &copy; 2024 Mommy and Me
