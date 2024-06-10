@@ -1,6 +1,6 @@
 <!-- 
 Author: Tierra Whitley
-Date: May 30, 2024
+Date: May 31, 2024
 File Name: index.html
 Description: This page consists of the index.
 -->
@@ -27,6 +27,7 @@ Description: This page consists of the index.
         .logo {
             display: block;
             margin: 0 auto;
+            margin-top: 10px; /* Adjusting the margin to push it to the top */
         }
         
         header, footer {
@@ -36,13 +37,13 @@ Description: This page consists of the index.
         }
         
         nav a {
-            color: black;
+            color: black;  /* Change link color to black */
             text-decoration: none;
             margin: 0 10px;
         }
         
         nav a:hover {
-            text-decoration: underline;
+            text-decoration: underline;  /* Add underline on hover */
         }
         
         .homepage .row {
@@ -60,22 +61,17 @@ Description: This page consists of the index.
         
         .footer-nav .footer-link {
             margin: 0 10px;
-            color: black;
+            color: black; /* Change link color to black */
         }
 
         .footer-nav .footer-link:hover {
-            text-decoration: underline;
-        }
-
-        .media {
-            margin: 20px 0;
+            text-decoration: underline;  /* Add underline on hover */
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="Images/logo.png" alt="Logo" class="logo">
-        <h1>Welcome to My Website</h1>
+        <img src="logo.png" alt="Logo" class="logo">
     </header>
     <nav>
         <a href="index.html">Home</a>
@@ -101,25 +97,11 @@ Description: This page consists of the index.
                 <p>Column 4 content...</p>
             </div>
         </div>
-        <!-- Developer comment: Adding video content -->
-        <div class="media">
-            <h2>Our Video</h2>
-            <!-- Embed YouTube video using iframe -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/T6vA3WZHltc?si=22YR_R3-0T39oVNc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <!-- Developer comment: Adding audio content -->
-        <div class="media">
-            <h2>Our Audio</h2>
-            <audio controls>
-                <source src="audio/audio_example.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
     </main>
     <footer>
         <p>&copy; 2024 Mommy and Me</p>
         <nav class="footer-nav">
-            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="policy.html" class="footer-link">Privacy Policy</a>
             <a href="terms.html" class="footer-link">Terms of Service</a>
         </nav>
     </footer>
