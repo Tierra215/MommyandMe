@@ -75,6 +75,42 @@ Description: This page consists of the gallery of images.
         .footer-nav a:hover {
             text-decoration: underline;  /* Add underline on hover */
         }
+
+        /* Hide popup by default */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Show popup when it's targeted */
+        .popup:target {
+            display: block;
+        }
+
+        /* Center the image inside the popup */
+        .popup img {
+            display: block;
+            margin: auto;
+            max-width: 80%;
+            max-height: 80%;
+            margin-top: 10%;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -100,16 +136,17 @@ Description: This page consists of the gallery of images.
             <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg" alt="Thumbnail 3"></a>
         </div>
 
+        <!-- Popup images -->
         <div id="img1" class="popup">
-            <a href="#!" class="close">&times;</a>
+            <a href="#" class="close">&times;</a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image1.jpg" alt="Description of the expanded image">
         </div>
         <div id="img2" class="popup">
-            <a href="#!" class="close">&times;</a>
+            <a href="#" class="close">&times;</a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image2.jpg" alt="Description of the expanded image">
         </div>
         <div id="img3" class="popup">
-            <a href="#!" class="close">&times;</a>
+            <a href="#" class="close">&times;</a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image3.jpg" alt="Description of the expanded image">
         </div>
     </main>
