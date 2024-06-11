@@ -113,6 +113,13 @@ Description: This page consists of the gallery of images.
             <a href="#!" class="close">&times;</a>
             <img id="expandedImgContent3" alt="Description of the expanded image">
         </div>
+
+        <script>
+            // Function to set the src attribute of the expanded image when a thumbnail is clicked
+            function expandImage(thumbnailId, expandedImageId, imagePath) {
+                document.getElementById(expandedImageId).src = imagePath;
+            }
+        </script>
     </main>
     <footer>
         &copy; 2024 Mommy and Me
