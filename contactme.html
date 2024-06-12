@@ -18,7 +18,7 @@ Description: This page consists of contact information.
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             background-color: pink;
-            color: black; /* Text color changed to black */
+            color: black;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -31,19 +31,19 @@ Description: This page consists of contact information.
         }
         
         nav a {
-            color: black;  /* Change link color to black */
+            color: black;
             text-decoration: none;
             margin: 0 10px;
         }
         
         nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline;
         }
         
         .row {
             margin: 10px 0;
             display: flex;
-            justify-content: center; /* Center aligning the contact form */
+            justify-content: center;
         }
 
         label {
@@ -54,10 +54,11 @@ Description: This page consists of contact information.
 
         input[type="text"],
         input[type="email"],
-        textarea {
+        textarea,
+        select {
             width: 300px;
             padding: 5px;
-            color: black; /* Text color changed to black */
+            color: black;
         }
 
         textarea {
@@ -82,11 +83,11 @@ Description: This page consists of contact information.
 
         .footer-nav a {
             margin: 0 10px;
-            color: black; /* Footer navigation links color changed to black */
+            color: black;
         }
 
         .footer-nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline;
         }
 
         main {
@@ -97,7 +98,7 @@ Description: This page consists of contact information.
         }
 
         form {
-            width: 300px; /* Adjust the width as needed */
+            width: 300px;
         }
     </style>
 </head>
@@ -115,18 +116,36 @@ Description: This page consists of contact information.
     </nav>
     <main>
         <form>
-            <div class="row">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-            </div>
-            <div class="row">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="row">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div class="row">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="row">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Newsletter Subscription</legend>
+                <div class="row">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Subscribe to our newsletter</label>
+                </div>
+                <div class="row">
+                    <label for="preferences">Preferences:</label>
+                    <select id="preferences" name="preferences">
+                        <option value="updates">Updates</option>
+                        <option value="events">Events</option>
+                        <option value="promotions">Promotions</option>
+                    </select>
+                </div>
+            </fieldset>
             <div class="row">
                 <button type="submit">Submit</button>
             </div>
