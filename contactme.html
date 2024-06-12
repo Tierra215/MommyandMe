@@ -120,7 +120,7 @@ Description: This page consists of contact information.
         <a href="contactme.html">Contact Me</a>
     </nav>
     <main>
-        <form method="post" action="#">
+        <form method="post" action="response_page.js">
             <fieldset>
                 <legend>Contact Information</legend>
                 <div class="row">
@@ -149,6 +149,17 @@ Description: This page consists of contact information.
                         <option value="events">Events</option>
                         <option value="promotions">Promotions</option>
                     </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact Method</legend>
+                <div class="row centered-label">
+                    <input type="radio" id="contact_email" name="contact_method" value="email" required>
+                    <label for="contact_email">Email</label>
+                </div>
+                <div class="row centered-label">
+                    <input type="radio" id="contact_phone" name="contact_method" value="phone">
+                    <label for="contact_phone">Phone</label>
                 </div>
             </fieldset>
             <div class="row">
