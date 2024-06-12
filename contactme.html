@@ -100,6 +100,11 @@ Description: This page consists of contact information.
         form {
             width: 300px;
         }
+
+        .centered-label {
+            text-align: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -115,7 +120,7 @@ Description: This page consists of contact information.
         <a href="contactme.html">Contact Me</a>
     </nav>
     <main>
-        <form>
+        <form method="post" action="response_page.js">
             <fieldset>
                 <legend>Contact Information</legend>
                 <div class="row">
@@ -133,11 +138,11 @@ Description: This page consists of contact information.
             </fieldset>
             <fieldset>
                 <legend>Newsletter Subscription</legend>
-                <div class="row">
+                <div class="row centered-label">
                     <input type="checkbox" id="newsletter" name="newsletter">
                     <label for="newsletter">Subscribe to our newsletter</label>
                 </div>
-                <div class="row">
+                <div class="row centered-label">
                     <label for="preferences">Preferences:</label>
                     <select id="preferences" name="preferences">
                         <option value="updates">Updates</option>
@@ -158,5 +163,6 @@ Description: This page consists of contact information.
             <a href="terms.html">Terms of Service</a>
         </nav>
     </footer>
+    <script src="response_page.js"></script>
 </body>
 </html>
