@@ -168,7 +168,7 @@ Description: This page consists of contact information.
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach($_POST as $key => $value){
-            echo htmlspecialchars($key) . ": " . htmlspecialchars($value) . "<br/>";
+            echo htmlspecialchars($key) . ": " . htmlspecialchars($value) . "<br>";
         }
     }
     ?>
