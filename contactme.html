@@ -120,7 +120,7 @@ Description: This page consists of contact information.
         <a href="contactme.html">Contact Me</a>
     </nav>
     <main>
-        <form method="post" action="response_page.js">
+        <form method="post" action="">
             <fieldset>
                 <legend>Contact Information</legend>
                 <div class="row">
@@ -163,6 +163,14 @@ Description: This page consists of contact information.
             <a href="terms.html">Terms of Service</a>
         </nav>
     </footer>
-    <script src="response_page.js"></script>
+
+    <!-- PHP code to handle form submission and display submitted data -->
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        foreach($_POST as $key => $value){
+            echo htmlspecialchars($key) . ": " . htmlspecialchars($value) . "<br/>";
+        }
+    }
+    ?>
 </body>
 </html>
