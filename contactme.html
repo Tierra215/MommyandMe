@@ -163,14 +163,5 @@ Description: This page consists of contact information.
             <a href="terms.html">Terms of Service</a>
         </nav>
     </footer>
-
-    <!-- PHP code to handle form submission and display submitted data -->
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        foreach($_POST as $key => $value){
-            echo htmlspecialchars($key) . ": " . htmlspecialchars($value) . "<br>";
-        }
-    }
-    ?>
 </body>
 </html>
