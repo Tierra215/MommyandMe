@@ -160,5 +160,26 @@ Description: This page consists of the index.
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // JavaScript for handling form submission and displaying invitation message
+        document.getElementById('inviteForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get input field values
+            var recipientName = document.getElementById('recipientName').value;
+            var hostName = document.getElementById('hostName').value;
+
+            // Display invitation message section
+            var invitationMessageSection = document.getElementById('invitationMessage');
+            invitationMessageSection.style.display = 'block';
+
+            // Replace placeholder text with actual input values
+            document.getElementById('recipientNamePlaceholder').textContent = recipientName;
+            document.getElementById('hostNamePlaceholder').textContent = hostName;
+
+            // Optionally, you can clear the form inputs after submission
+            document.getElementById('inviteForm').reset();
+        });
+    </script>
 </body>
 </html>
