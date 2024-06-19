@@ -1,6 +1,6 @@
 <!-- 
 Author: Tierra Whitley
-Date: June 18, 2024
+Date: June 19, 2024
 File Name: index.html
 Description: This page consists of the index.
 -->
@@ -107,6 +107,43 @@ Description: This page consists of the index.
             font-size: 18px;
             margin-bottom: 10px;
         }
+
+        /* Style for volunteer section */
+        #volunteerForm {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #volunteerForm input[type=text], #volunteerForm input[type=button] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #volunteerForm input[type=button] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        #volunteerList {
+            width: calc(100% - 20px);
+            height: 200px;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            resize: none;
+        }
     </style>
 </head>
 <body>
@@ -124,6 +161,7 @@ Description: This page consists of the index.
     </nav>
     
     <main class="homepage">
+        <!-- Invitation Form Section -->
         <div id="invitationForm">
             <h2>Invitation Form</h2>
             <form id="inviteForm">
@@ -145,6 +183,26 @@ Description: This page consists of the index.
             <p><span id="hostNamePlaceholder"></span></p>
         </div>
         
+        <!-- Volunteer Form Section -->
+        <div id="volunteerForm">
+            <h2>Volunteers</h2>
+            <form>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name">
+                <br><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name">
+                <br><br>
+                <input type="button" id="add_button" value="Add Volunteer">
+                <input type="button" id="delete_button" value="Delete Volunteer">
+            </form>
+            <h2>Volunteer List</h2>
+            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
+            <br>
+            <input type="button" id="clear_button" value="Clear Volunteers">
+            <input type="button" id="sort_button" value="Sort By First Name">
+        </div>
+        
         <!-- Video Section -->
         <div class="row">
             <div class="column">
@@ -162,6 +220,7 @@ Description: This page consists of the index.
     </footer>
 
     <script src="script.js"></script>
+    <script src="volunteers.js"></script>
     <script>
         // JavaScript for handling form submission and displaying invitation message
         document.getElementById('inviteForm').addEventListener('submit', function(event) {
