@@ -1,0 +1,152 @@
+<!-- 
+Author: Tierra Whitley
+Date: June 18, 2024
+File Name: aboutme.html
+Description: This page the invitation page.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Page</title>
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Importing the Comic Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/invitation.js"></script>
+    <style>
+        /* Internal Styles */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: pink;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+        }
+
+        header, footer {
+            background-color: #333;
+            padding: 10px 0;
+            color: white;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section#pageForm {
+            margin: 20px auto;
+            width: 80%;
+            text-align: left;
+        }
+
+        section#pageForm form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        section#pageForm input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        section#pageForm input[type="submit"] {
+            padding: 10px;
+            font-size: 1em;
+            background-color: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        section#pageForm input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        article#placeholderContent {
+            margin: 20px auto;
+            width: 80%;
+            text-align: left;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+        }
+
+        .footer-nav a {
+            margin: 0 10px;
+            color: black;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Invitation</h1>
+    </header>
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="myinterests.html">My Interests</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contactme.html">Contact Me</a>
+    </nav>
+    <!-- Main Content Section -->
+    <section id="pageForm">
+        <form action="#">
+            <label for="recipientName">Recipient name:</label>
+            <input type="text" name="recipientNameInput" id="recipientNameInput" placeholder="Enter the Recipient's Name" />
+
+            <label for="hostName">Host name:</label>
+            <input type="text" name="hostNameInput" id="hostNameInput" placeholder="Enter Your Name" />
+
+            <input type="submit" value="Submit" onclick="replaceContent(); return false;">
+        </form>
+    </section>
+
+    <article id="placeholderContent">
+        Hello <span id="recipientNamePlaceholder">recipientName</span>!
+        <br/><br/>
+        You have been invited to volunteer for an event held on July 1st. Please respond to this email to sign up as a volunteer.
+        <br/><br/>
+        Thanks!
+        <br/><br/>
+        <span id="hostNamePlaceholder">hostName</span>
+    </article>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Mommy and Me</p>
+        <!-- Footer Navigation -->
+        <nav class="footer-nav">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </nav>
+    </footer>
+</body>
+
+</html>
