@@ -1,0 +1,127 @@
+<!-- 
+Author: Tierra Whitley
+Date: June 19, 2024
+File Name: index.html
+Description: This page consists of the index.
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteers Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/volunteers.js"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: pink;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .logo {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px; /* Adjusting the margin to push it to the top */
+        }
+        
+        header, footer {
+            background-color: #333;
+            padding: 10px 0;
+            color: white;
+        }
+        
+        nav a {
+            color: black;  /* Change link color to black */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;  /* Add underline on hover */
+        }
+        
+        #pageForm {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #pageForm input[type=text], #pageForm input[type=button] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #pageForm input[type=button] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        #volunteerList {
+            width: calc(100% - 20px);
+            height: 200px;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="invitation.html">Invitation</a></li>
+                <li><a href="volunteer.html" class="active">Volunteers</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="registration.html">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="pageForm">
+        <form>
+            <h1>Volunteers</h1>
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name">
+                <br><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name">
+                <br><br>
+                <input type="button" id="add_button" value="Add Volunteer">
+                <input type="button" id="delete_button" value="Delete Volunteer">
+            </div>
+            <h2>Volunteer List</h2>
+            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
+            <br>
+            <input type="button" id="clear_button" value="Clear Volunteers">
+            <input type="button" id="sort_button" value="Sort By First Name">
+        </form>
+    </section>
+    
+    <footer>This events site is for IT3515 tasks.</footer>
+</body>
+
+</html>
