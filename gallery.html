@@ -1,8 +1,8 @@
 <!-- 
 Author: Tierra Whitley
-Date: May 31, 2024
-File Name: gallery.html
-Description: This page consists of the gallery of images.
+Date: June 22, 2024
+File Name: index.html
+Description: This page consists of the index.
 -->
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ Description: This page consists of the gallery of images.
         
         .logo {
             display: block;
-            margin: 20px auto 0; /* Adjusted margin */
+            margin: 20px auto 0;
         }
         
         header, footer {
@@ -36,13 +36,13 @@ Description: This page consists of the gallery of images.
         }
         
         nav a {
-            color: black;  /* Change link color to black */
+            color: black;
             text-decoration: none;
             margin: 0 10px;
         }
         
         nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline;
         }
 
         .gallery {
@@ -69,14 +69,13 @@ Description: This page consists of the gallery of images.
 
         .footer-nav a {
             margin: 0 10px;
-            color: black; /* Footer navigation links color changed to black */
+            color: black;
         }
 
         .footer-nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline;
         }
 
-        /* Hide popup by default */
         .popup {
             display: none;
             position: fixed;
@@ -88,12 +87,10 @@ Description: This page consists of the gallery of images.
             z-index: 1;
         }
 
-        /* Show popup when it's targeted */
         .popup:target {
             display: block;
         }
 
-        /* Center the image inside the popup */
         .popup img {
             display: block;
             margin: auto;
@@ -102,7 +99,6 @@ Description: This page consists of the gallery of images.
             margin-top: 10%;
         }
 
-        /* Close button */
         .close {
             position: absolute;
             top: 15px;
@@ -113,9 +109,9 @@ Description: This page consists of the gallery of images.
         }
     </style>
 </head>
-<body>
+<body onload="onPageLoad()">
     <header>
-        <img src="https://github.com/Tierra215/MommyandMe/raw/main/logo.png" alt="Logo" class="logo"> <!-- Logo placed above the header -->
+        <img src="https://github.com/Tierra215/MommyandMe/raw/main/logo.png" alt="Logo" class="logo">
         <h1>Gallery</h1>
     </header>
     <nav>
@@ -128,13 +124,13 @@ Description: This page consists of the gallery of images.
     <main class="gallery">
         <!-- Developer comment: Adding an image gallery with thumbnails -->
         <div class="thumbnail">
-            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg" alt="Thumbnail 1"></a>
+            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg" alt="Thumbnail 1" onmouseover="rollover(this, 'images/image1_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg" alt="Thumbnail 2"></a>
+            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg" alt="Thumbnail 2" onmouseover="rollover(this, 'images/image2_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg" alt="Thumbnail 3"></a>
+            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg" alt="Thumbnail 3" onmouseover="rollover(this, 'images/image3_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg')"></a>
         </div>
 
         <!-- Popup images -->
@@ -143,11 +139,11 @@ Description: This page consists of the gallery of images.
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image1.jpg" alt="Description of the expanded image">
         </div>
         <div id="img2" class="popup">
-            <a href="#" class="close">&times;</a>
+            <a href="#" class="close">&times;"></a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image2.jpg" alt="Description of the expanded image">
         </div>
         <div id="img3" class="popup">
-            <a href="#" class="close">&times;</a>
+            <a href="#" class="close">&times;"></a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image3.jpg" alt="Description of the expanded image">
         </div>
     </main>
@@ -158,5 +154,35 @@ Description: This page consists of the gallery of images.
             <a href="terms.html">Terms of Service</a>
         </nav>
     </footer>
+
+    <script>
+        // Function to preload all gallery images
+        function onPageLoad() {
+            const images = [
+                'https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/image1.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/image2.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/image3.jpg',
+                'images/image1_hover.jpg',
+                'images/image2_hover.jpg',
+                'images/image3_hover.jpg'
+            ];
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        // Rollover function for gallery images
+        function rollover(img, src) {
+            img.src = src;
+        }
+
+        function rollout(img, src) {
+            img.src = src;
+        }
+    </script>
 </body>
 </html>
