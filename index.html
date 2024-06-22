@@ -188,6 +188,7 @@ Description: This page consists of the index.
     
     <!-- Banner Section -->
     <section id="banner">
+        <h2>Banner Section</h2>
         <img src="images/banner1.jpg" class="visible" alt="Banner 1">
         <img src="images/banner2.jpg" class="hidden" alt="Banner 2">
         <img src="images/banner3.jpg" class="hidden" alt="Banner 3">
@@ -196,7 +197,7 @@ Description: This page consists of the index.
     <main class="homepage">
         <!-- Invitation Form Section -->
         <div id="invitationForm">
-            <h2>Invitation Form</h2>
+            <h2>Invitation Form Section</h2>
             <form id="inviteForm">
                 <label for="recipientName">Recipient's Name:</label>
                 <input type="text" id="recipientName" name="recipientName" required>
@@ -209,7 +210,7 @@ Description: This page consists of the index.
         </div>
 
         <div id="invitationMessage">
-            <h2>Invitation Message</h2>
+            <h2>Invitation Message Section</h2>
             <p>Hello <span id="recipientNamePlaceholder"></span>!</p>
             <p>You have been invited to volunteer for an event held on July 1st. Please respond to this email to sign up as a volunteer.</p>
             <p>Thanks!</p>
@@ -218,7 +219,7 @@ Description: This page consists of the index.
         
         <!-- Volunteer Form Section -->
         <div id="volunteerForm">
-            <h2>Volunteers</h2>
+            <h2>Volunteer Form Section</h2>
             <form>
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name">
@@ -255,4 +256,92 @@ Description: This page consists of the index.
     <script src="script.js"></script>
     <script src="volunteers.js"></script>
     <script>
-        // JavaScript for
+        // JavaScript for handling form submission and displaying invitation message
+        document.getElementById('inviteForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get input field values
+            var recipientName = document.getElementById('recipientName').value;
+            var hostName = document.getElementById('hostName').value;
+
+            // Display invitation message section
+            var invitationMessageSection = document.getElementById('invitationMessage');
+            invitationMessageSection.style.display = 'block';
+
+            // Replace placeholder text with actual input values
+            document.getElementById('recipientNamePlaceholder').textContent = recipientName;
+            document.getElementById('hostNamePlaceholder').textContent = hostName;
+
+            // Optionally, you can clear the form inputs after submission
+            document.getElementById('inviteForm').reset();
+        });
+
+        // JavaScript for handling volunteers section
+        document.getElementById('add_button').addEventListener('click', function() {
+            var firstName = document.getElementById('first_name').value;
+            var lastName = document.getElementById('last_name').value;
+            var volunteerList = document.getElementById('volunteerList');
+
+            if (firstName && lastName) {
+                var volunteerEntry = firstName + ' ' + lastName + '\n';
+                volunteerList.value += volunteerEntry;
+
+                // Clear input fields
+                document.getElementById('first_name').value = '';
+                document.getElementById('last_name').value = '';
+            }
+        });
+
+        document.getElementById('delete_button').addEventListener('click', function() {
+            var volunteerList = document.getElementById('volunteerList');
+            var volunteers = volunteerList.value.split('\n');
+
+            // Remove the last volunteer entry
+            if (volunteers.length > 0) {
+                volunteers.pop();
+                volunteerList.value = volunteers.join('\n');
+            }
+        });
+
+        document.getElementById('clear_button').addEventListener('click', function() {
+            document.getElementById('volunteerList').value = '';
+        });
+
+        document.getElementById('sort_button').addEventListener('click', function() {
+            var volunteerList = document.getElementById('volunteerList');
+            var volunteers = volunteerList.value.split('\n').filter(function(volunteer) {
+                return volunteer.trim() !== '';
+            });
+
+            // Sort volunteers by first name
+            volunteers.sort(function(a, b) {
+                var firstNameA = a.split(' ')[0];
+                var firstNameB = b.split(' ')[0];
+                return firstNameA.localeCompare(firstNameB);
+            });
+
+            volunteerList.value = volunteers.join('\n');
+        });
+
+        // JavaScript for banner cycling
+        var currentBannerIndex = 0;
+        var banners = document.querySelectorAll('#banner img');
+
+        function onPageLoad() {
+            // Start banner cycling
+            setInterval(cycleBanner, 3000); // Cycle every 3 seconds
+        }
+
+        function cycleBanner() {
+            banners[currentBannerIndex].classList.remove('visible');
+            banners[currentBannerIndex].classList.add('hidden');
+
+            currentBannerIndex = (currentBannerIndex + 1) % banners.length;
+
+            banners[currentBannerIndex].classList.remove('hidden');
+            banners[currentBannerIndex].classList.add('visible');
+        }
+    </script>
+</body>
+</html>
+
