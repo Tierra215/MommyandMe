@@ -1,6 +1,6 @@
 <!-- 
 Author: Tierra Whitley
-Date: June 19, 2024
+Date: June 22, 2024
 File Name: index.html
 Description: This page consists of the index.
 -->
@@ -44,6 +44,31 @@ Description: This page consists of the index.
         
         nav a:hover {
             text-decoration: underline;  /* Add underline on hover */
+        }
+
+        /* Styles for the banner */
+        #banner {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .visible {
+            opacity: 1;
         }
         
         .homepage .row {
@@ -146,7 +171,7 @@ Description: This page consists of the index.
         }
     </style>
 </head>
-<body>
+<body onload="onPageLoad()">
     <header>
         <img src="logo.png" alt="Logo" class="logo">
         <h1>Welcome to My Website</h1>
@@ -159,6 +184,13 @@ Description: This page consists of the index.
         <a href="gallery.html">Gallery</a>
         <a href="contactme.html">Contact Me</a>
     </nav>
+    
+    <!-- Banner Section -->
+    <section id="banner">
+        <img src="images/banner1.jpg" class="visible" alt="Banner 1">
+        <img src="images/banner2.jpg" class="hidden" alt="Banner 2">
+        <img src="images/banner3.jpg" class="hidden" alt="Banner 3">
+    </section>
     
     <main class="homepage">
         <!-- Invitation Form Section -->
@@ -241,6 +273,31 @@ Description: This page consists of the index.
             // Optionally, you can clear the form inputs after submission
             document.getElementById('inviteForm').reset();
         });
+
+        // JavaScript for preloading images and cycling the banner
+        function onPageLoad() {
+            const images = ['images/banner1.jpg', 'images/banner2.jpg', 'images/banner3.jpg'];
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            cycleBanner();
+        }
+
+        function cycleBanner() {
+            const banner = document.getElementById('banner');
+            const imgs = banner.getElementsByTagName('img');
+            let current = 0;
+
+            setInterval(() => {
+                imgs[current].classList.remove('visible');
+                imgs[current].classList.add('hidden');
+                current = (current + 1) % imgs.length;
+                imgs[current].classList.remove('hidden');
+                imgs[current].classList.add('visible');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
