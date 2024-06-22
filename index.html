@@ -5,6 +5,7 @@ File Name: index.html
 Description: This page consists of the index.
 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -254,50 +255,4 @@ Description: This page consists of the index.
     <script src="script.js"></script>
     <script src="volunteers.js"></script>
     <script>
-        // JavaScript for handling form submission and displaying invitation message
-        document.getElementById('inviteForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-
-            // Get input field values
-            var recipientName = document.getElementById('recipientName').value;
-            var hostName = document.getElementById('hostName').value;
-
-            // Display invitation message section
-            var invitationMessageSection = document.getElementById('invitationMessage');
-            invitationMessageSection.style.display = 'block';
-
-            // Replace placeholder text with actual input values
-            document.getElementById('recipientNamePlaceholder').textContent = recipientName;
-            document.getElementById('hostNamePlaceholder').textContent = hostName;
-
-            // Optionally, you can clear the form inputs after submission
-            document.getElementById('inviteForm').reset();
-        });
-
-        // JavaScript for preloading images and cycling the banner
-        function onPageLoad() {
-            const images = ['images/banner1.jpg', 'images/banner2.jpg', 'images/banner3.jpg'];
-            images.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-
-            cycleBanner();
-        }
-
-        function cycleBanner() {
-            const banner = document.getElementById('banner');
-            const imgs = banner.getElementsByTagName('img');
-            let current = 0;
-
-            setInterval(() => {
-                imgs[current].classList.remove('visible');
-                imgs[current].classList.add('hidden');
-                current = (current + 1) % imgs.length;
-                imgs[current].classList.remove('hidden');
-                imgs[current].classList.add('visible');
-            }, 3000);
-        }
-    </script>
-</body>
-</html>
+        // JavaScript for
