@@ -124,13 +124,13 @@ Description: This page consists of the gallery.
     <main class="gallery">
         <!-- Developer comment: Adding an image gallery with thumbnails -->
         <div class="thumbnail">
-            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg" alt="Thumbnail 1" onmouseover="rollover(this, 'images/image1_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg')"></a>
+            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg" alt="Thumbnail 1" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/raw/main/images/image1_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg" alt="Thumbnail 2" onmouseover="rollover(this, 'images/image2_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg')"></a>
+            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg" alt="Thumbnail 2" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/raw/main/images/image2_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg" alt="Thumbnail 3" onmouseover="rollover(this, 'images/image3_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg')"></a>
+            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg" alt="Thumbnail 3" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/raw/main/images/image3_hover.jpg')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/raw/main/image3_thumb.jpg')"></a>
         </div>
 
         <!-- Popup images -->
@@ -139,11 +139,11 @@ Description: This page consists of the gallery.
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image1.jpg" alt="Description of the expanded image">
         </div>
         <div id="img2" class="popup">
-            <a href="#" class="close">&times;"></a>
+            <a href="#" class="close">&times;</a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image2.jpg" alt="Description of the expanded image">
         </div>
         <div id="img3" class="popup">
-            <a href="#" class="close">&times;"></a>
+            <a href="#" class="close">&times;</a>
             <img src="https://github.com/Tierra215/MommyandMe/raw/main/image3.jpg" alt="Description of the expanded image">
         </div>
     </main>
@@ -157,9 +157,7 @@ Description: This page consists of the gallery.
 
     <script>
         // Function to preload all gallery images
-        // This function is called when the page loads to ensure that all images are preloaded for a better user experience.
         function onPageLoad() {
-            // Array of image URLs to be preloaded
             const images = [
                 'https://github.com/Tierra215/MommyandMe/raw/main/image1_thumb.jpg',
                 'https://github.com/Tierra215/MommyandMe/raw/main/image2_thumb.jpg',
@@ -167,27 +165,24 @@ Description: This page consists of the gallery.
                 'https://github.com/Tierra215/MommyandMe/raw/main/image1.jpg',
                 'https://github.com/Tierra215/MommyandMe/raw/main/image2.jpg',
                 'https://github.com/Tierra215/MommyandMe/raw/main/image3.jpg',
-                'images/image1_hover.jpg',
-                'images/image2_hover.jpg',
-                'images/image3_hover.jpg'
+                'https://github.com/Tierra215/MommyandMe/raw/main/images/image1_hover.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/images/image2_hover.jpg',
+                'https://github.com/Tierra215/MommyandMe/raw/main/images/image3_hover.jpg'
             ];
-            // Loop through the array and create a new Image object for each URL
             images.forEach(src => {
                 const img = new Image();
-                img.src = src; // Set the source of the image to start preloading it
+                img.src = src;
             });
         }
 
         // Rollover function for gallery images
-        // This function is called when the mouse hovers over a thumbnail image
-        function rollover(img, src) {
-            img.src = src; // Change the source of the image to the hover image
+        function rollover(img, hoverSrc) {
+            img.src = hoverSrc;
         }
 
         // Rollout function for gallery images
-        // This function is called when the mouse moves away from a thumbnail image
-        function rollout(img, src) {
-            img.src = src; // Change the source of the image back to the original thumbnail
+        function rollout(img, originalSrc) {
+            img.src = originalSrc;
         }
     </script>
 </body>
