@@ -5,7 +5,6 @@ File Name: gallery.html
 Description: This page consists of the gallery.
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,27 +123,27 @@ Description: This page consists of the gallery.
     <main class="gallery">
         <!-- Thumbnails with rollover functionality -->
         <div class="thumbnail">
-            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true" alt="Mommy and Me Image 1" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true')"></a>
+            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image1_thumb.jpg?raw=true" alt="Mommy and Me Image 1" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image1_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image1_thumb.jpg?raw=true')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true" alt="Mommy and Me Image 2" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true')"></a>
+            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image2_thumb.jpg?raw=true" alt="Mommy and Me Image 2" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image2_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image2_thumb.jpg?raw=true')"></a>
         </div>
         <div class="thumbnail">
-            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true" alt="Mommy and Me Image 3" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true')"></a>
+            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image3_thumb.jpg?raw=true" alt="Mommy and Me Image 3" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image3_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/images/image3_thumb.jpg?raw=true')"></a>
         </div>
 
         <!-- Popup images -->
         <div id="img1" class="popup">
             <a href="#" class="close">&times;</a>
-            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image1.jpg?raw=true" alt="Expanded Mommy and Me Image 1">
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image1.jpg?raw=true" alt="Expanded Mommy and Me Image 1">
         </div>
         <div id="img2" class="popup">
             <a href="#" class="close">&times;</a>
-            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image2.jpg?raw=true" alt="Expanded Mommy and Me Image 2">
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image2.jpg?raw=true" alt="Expanded Mommy and Me Image 2">
         </div>
         <div id="img3" class="popup">
             <a href="#" class="close">&times;</a>
-            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image3.jpg?raw=true" alt="Expanded Mommy and Me Image 3">
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/images/image3.jpg?raw=true" alt="Expanded Mommy and Me Image 3">
         </div>
     </main>
     <footer>
@@ -159,15 +158,15 @@ Description: This page consists of the gallery.
         // Function to preload all gallery images
         function onPageLoad() {
             const images = [
-                'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image1.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image2.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image3.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true',
-                'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true'
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image1_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image2_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image3_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image1.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image2.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image3.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image1_hover.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image2_hover.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/images/image3_hover.jpg?raw=true'
             ];
 
             // Preload images
