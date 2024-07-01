@@ -1,18 +1,18 @@
 <!-- 
 Author: Tierra Whitley
 Date: July 1, 2024
-File Name: index.html
-Description: This page consists of the index.
+File Name: gallery.html
+Description: This page consists of the gallery.
 -->
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Gallery</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Importing the Comic Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,8 +26,7 @@ Description: This page consists of the index.
         
         .logo {
             display: block;
-            margin: 0 auto;
-            margin-top: 10px; /* Adjusting the margin to push it to the top */
+            margin: 20px auto 0;
         }
         
         header, footer {
@@ -37,153 +36,84 @@ Description: This page consists of the index.
         }
         
         nav a {
-            color: black;  /* Change link color to black */
+            color: black;
             text-decoration: none;
             margin: 0 10px;
         }
         
         nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline;
         }
-        
-        /* Banner section */
-        #banner {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        #banner img {
-            width: 100%;
-            height: 300px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        
-        .hidden {
-            opacity: 0;
-        }
-        
-        .visible {
-            opacity: 1;
-        }
-        
-        .homepage .row {
+
+        .gallery {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            margin: 20px 0;
+            align-items: center;
         }
-        
-        .column {
-            flex: 1;
-            padding: 20px;
-            background-color: #444;
+
+        .thumbnail {
             margin: 10px;
         }
-        
-        .footer-nav .footer-link {
+
+        .thumbnail img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        .footer-nav a {
             margin: 0 10px;
-            color: black; /* Change link color to black */
+            color: black;
         }
 
-        .footer-nav .footer-link:hover {
-            text-decoration: underline;  /* Add underline on hover */
+        .footer-nav a:hover {
+            text-decoration: underline;
         }
 
-        /* Style for form section */
-        #invitationForm {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
         }
 
-        /* Style for form input and submit button */
-        #invitationForm input[type=text], #invitationForm input[type=submit] {
-            width: calc(50% - 10px);
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
+        .popup:target {
+            display: block;
         }
 
-        #invitationForm input[type=submit] {
-            background-color: #333;
+        .popup img {
+            display: block;
+            margin: auto;
+            max-width: 80%;
+            max-height: 80%;
+            margin-top: 10%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
             color: white;
-            cursor: pointer;
-        }
-
-        /* Style for invitation message section */
-        #invitationMessage {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-            display: none; /* Initially hide the invitation message section */
-        }
-
-        #invitationMessage p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        /* Style for volunteer section */
-        #volunteerForm {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #volunteerForm input[type=text], #volunteerForm input[type=button] {
-            width: calc(50% - 10px);
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        #volunteerForm input[type=button] {
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-        }
-
-        #volunteerList {
-            width: calc(100% - 20px);
-            height: 200px;
-            margin: 5px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: #333;
-            color: white;
-            resize: none;
+            font-size: 30px;
+            text-decoration: none;
         }
     </style>
 </head>
-<body>
-    <!-- Banner Section -->
-    <div id="banner">
-        <img src="banner1.jpg" alt="Banner Image 1" class="visible">
-        <img src="banner2.jpg" alt="Banner Image 2" class="hidden">
-        <img src="banner3.jpg" alt="Banner Image 3" class="hidden">
-    </div>
-
+<body onload="onPageLoad()">
     <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <h1>Welcome to My Website</h1>
+        <img src="https://github.com/Tierra215/MommyandMe/raw/main/logo.png" alt="Logo" class="logo">
+        <h1>Gallery</h1>
     </header>
-    
     <nav>
         <a href="index.html">Home</a>
         <a href="aboutme.html">About Me</a>
@@ -191,102 +121,71 @@ Description: This page consists of the index.
         <a href="gallery.html">Gallery</a>
         <a href="contactme.html">Contact Me</a>
     </nav>
-    
-    <main class="homepage">
-        <!-- Invitation Form Section -->
-        <section id="invitationForm">
-            <h2>Invitation Form</h2>
-            <form id="inviteForm">
-                <label for="recipientName">Recipient's Name:</label>
-                <input type="text" id="recipientName" name="recipientName" required>
-                <br><br>
-                <label for="hostName">Your Name:</label>
-                <input type="text" id="hostName" name="hostName" required>
-                <br><br>
-                <input type="submit" value="Generate Invitation">
-            </form>
-        </section>
+    <main class="gallery">
+        <!-- Thumbnails with rollover functionality -->
+        <div class="thumbnail">
+            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true" alt="Mommy and Me Image 1" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true')"></a>
+        </div>
+        <div class="thumbnail">
+            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true" alt="Mommy and Me Image 2" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true')"></a>
+        </div>
+        <div class="thumbnail">
+            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true" alt="Mommy and Me Image 3" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true')"></a>
+        </div>
 
-        <section id="invitationMessage">
-            <h2>Invitation Message</h2>
-            <p>Hello <span id="recipientNamePlaceholder"></span>!</p>
-            <p>You have been invited to volunteer for an event held on July 1st. Please respond to this email to sign up as a volunteer.</p>
-            <p>Thanks!</p>
-            <p><span id="hostNamePlaceholder"></span></p>
-        </section>
-        
-        <!-- Volunteer Form Section -->
-        <section id="volunteerForm">
-            <h2>Volunteers</h2>
-            <form>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name">
-                <br><br>
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name">
-                <br><br>
-                <input type="button" id="add_button" value="Add Volunteer">
-                <input type="button" id="delete_button" value="Delete Volunteer">
-            </form>
-            <h2>Volunteer List</h2>
-            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
-            <br>
-            <input type="button" id="clear_button" value="Clear Volunteers">
-            <input type="button" id="sort_button" value="Sort By First Name">
-        </section>
-        
-        <!-- Video Section -->
-        <div class="row">
-            <div class="column">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/T6vA3WZHltc?si=mv4-ksJXvVh4KqQa" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+        <!-- Popup images -->
+        <div id="img1" class="popup">
+            <a href="#" class="close">&times;</a>
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image1.jpg?raw=true" alt="Expanded Mommy and Me Image 1">
+        </div>
+        <div id="img2" class="popup">
+            <a href="#" class="close">&times;</a>
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image2.jpg?raw=true" alt="Expanded Mommy and Me Image 2">
+        </div>
+        <div id="img3" class="popup">
+            <a href="#" class="close">&times;</a>
+            <img src="https://github.com/Tierra215/MommyandMe/blob/main/image3.jpg?raw=true" alt="Expanded Mommy and Me Image 3">
         </div>
     </main>
-    
     <footer>
-        <p>&copy; 2024 Mommy and Me</p>
+        &copy; 2024 Mommy and Me
         <nav class="footer-nav">
-            <a href="policy.html" class="footer-link">Privacy Policy</a>
-            <a href="terms.html" class="footer-link">Terms of Service</a>
+            <a href="policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
         </nav>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="volunteers.js"></script>
     <script>
-        // JavaScript for handling form submission and displaying invitation message
-        document.getElementById('inviteForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+        // Function to preload all gallery images
+        function onPageLoad() {
+            const images = [
+                'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image1.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image2.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image3.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true',
+                'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true'
+            ];
 
-            // Get input field values
-            var recipientName = document.getElementById('recipientName').value;
-            var hostName = document.getElementById('hostName').value;
-
-            // Display invitation message section
-            var invitationMessageSection = document.getElementById('invitationMessage');
-            invitationMessageSection.style.display = 'block';
-
-            // Replace placeholder text with actual input values
-            document.getElementById('recipientNamePlaceholder').textContent = recipientName;
-            document.getElementById('hostNamePlaceholder').textContent = hostName;
-
-            // Optionally, you can clear the form inputs after submission
-            document.getElementById('inviteForm').reset();
-        });
-
-        // JavaScript for cycling banner images
-        var bannerImages = document.querySelectorAll('#banner img');
-        var currentImageIndex = 0;
-
-        function cycleBannerImages() {
-            bannerImages[currentImageIndex].classList.remove('visible');
-            bannerImages[currentImageIndex].classList.add('hidden');
-            currentImageIndex = (currentImageIndex + 1) % bannerImages.length;
-            bannerImages[currentImageIndex].classList.remove('hidden');
-            bannerImages[currentImageIndex].classList.add('visible');
+            // Preload images
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
         }
 
-        setInterval(cycleBannerImages, 3000); // Change image every 3 seconds
+        // Function to handle rollover effect
+        function rollover(img, hoverSrc) {
+            img.src = hoverSrc;
+        }
+
+        // Function to handle rollout effect
+        function rollout(img, originalSrc) {
+            img.src = originalSrc;
+        }
     </script>
 </body>
 </html>
