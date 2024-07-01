@@ -1,0 +1,188 @@
+<!-- 
+Author: Tierra Whitley
+Date: July 1, 2024
+File Name: index.html
+Description: This page consists of the index.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to validate the form fields
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var passwordVerify = document.getElementById('passwordVerify').value;
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var signUpNewsletter = document.querySelector('input[name="newsletter"]:checked');
+
+            // Resetting all error messages
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('passwordVerifyError').textContent = '';
+            document.getElementById('firstNameError').textContent = '';
+            document.getElementById('lastNameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneNumberError').textContent = '';
+
+            // Validating each field
+            var isValid = true;
+
+            // Username validation (must only contain letters and numbers)
+            var usernamePattern = /^[a-zA-Z0-9]+$/;
+            if (!usernamePattern.test(username)) {
+                document.getElementById('usernameError').textContent = 'Username must only contain letters and numbers.';
+                isValid = false;
+            }
+
+            // Password validation (minimum of 8 characters)
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                isValid = false;
+            }
+
+            // Password verification (must match password)
+            if (password !== passwordVerify) {
+                document.getElementById('passwordVerifyError').textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            // First Name validation (text string)
+            if (firstName.trim() === '') {
+                document.getElementById('firstNameError').textContent = 'Please enter your first name.';
+                isValid = false;
+            }
+
+            // Last Name validation (text string)
+            if (lastName.trim() === '') {
+                document.getElementById('lastNameError').textContent = 'Please enter your last name.';
+                isValid = false;
+            }
+
+            // Email validation (uses xxx@xxx.xxx format)
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email !== '' && !emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                isValid = false;
+            }
+
+            // Phone Number validation (uses (xxx) xxx-xxxx format)
+            var phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+            if (phoneNumber !== '' && !phonePattern.test(phoneNumber)) {
+                document.getElementById('phoneNumberError').textContent = 'Invalid phone number format. Use (xxx) xxx-xxxx.';
+                isValid = false;
+            }
+
+            // Sign Up for Newsletter validation (radio box)
+            if (!signUpNewsletter) {
+                document.getElementById('newsletterError').textContent = 'Please select whether you want to sign up for the newsletter.';
+                isValid = false;
+            } else {
+                document.getElementById('newsletterError').textContent = '';
+            }
+
+            // If form is not valid, focus on the first erroneous field
+            if (!isValid) {
+                if (username === '') {
+                    document.getElementById('username').focus();
+                } else if (password.length < 8) {
+                    document.getElementById('password').focus();
+                } else if (password !== passwordVerify) {
+                    document.getElementById('passwordVerify').focus();
+                } else if (firstName === '') {
+                    document.getElementById('firstName').focus();
+                } else if (lastName === '') {
+                    document.getElementById('lastName').focus();
+                } else if (email !== '' && !emailPattern.test(email)) {
+                    document.getElementById('email').focus();
+                } else if (phoneNumber !== '' && !phonePattern.test(phoneNumber)) {
+                    document.getElementById('phoneNumber').focus();
+                } else {
+                    document.getElementById('username').focus(); // Fallback, focus on username
+                }
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>User Registration</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="myinterests.html">My Interests</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contactme.html">Contact Me</a>
+    </nav>
+    
+    <main>
+        <form id="registrationForm" action="confirmation.php" method="post" onsubmit="return validateForm()">
+            <label for="username">Username*:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error"></span>
+            <br><br>
+            
+            <label for="password">Password*:</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+            <span id="passwordError" class="error"></span>
+            <br><br>
+            
+            <label for="passwordVerify">Verify Password*:</label>
+            <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
+            <span id="passwordVerifyError" class="error"></span>
+            <br><br>
+            
+            <label for="firstName">First Name*:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <span id="firstNameError" class="error"></span>
+            <br><br>
+            
+            <label for="lastName">Last Name*:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <span id="lastNameError" class="error"></span>
+            <br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="emailError" class="error"></span>
+            <br><br>
+            
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
+            <span id="phoneNumberError" class="error"></span>
+            <br><br>
+            
+            <label>Sign Up for Newsletter:</label>
+            <input type="radio" id="yes" name="newsletter" value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="newsletter" value="no">
+            <label for="no">No</label>
+            <span id="newsletterError" class="error"></span>
+            <br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Mommy and Me</p>
+        <nav class="footer-nav">
+            <a href="policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </nav>
+    </footer>
+</body>
+</html>
