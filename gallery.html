@@ -1,13 +1,6 @@
-<!-- 
-Author: Tierra Whitley
-Date: July 1, 2024
-File Name: gallery.html
-Description: This page consists of the gallery.
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,6 +102,7 @@ Description: This page consists of the gallery.
         }
     </style>
 </head>
+
 <body onload="onPageLoad()">
     <header>
         <img src="https://github.com/Tierra215/MommyandMe/raw/main/logo.png" alt="Logo" class="logo">
@@ -124,13 +118,28 @@ Description: This page consists of the gallery.
     <main class="gallery">
         <!-- Thumbnails with rollover functionality -->
         <div class="thumbnail">
-            <a href="#img1"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true" alt="Mommy and Me Image 1" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true')"></a>
+            <!-- Image 1 with rollover -->
+            <a href="#img1">
+                <img src="https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true" alt="Mommy and Me Image 1"
+                    onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_hover.jpg?raw=true')"
+                    onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true')">
+            </a>
         </div>
         <div class="thumbnail">
-            <a href="#img2"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true" alt="Mommy and Me Image 2" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true')"></a>
+            <!-- Image 2 with rollover -->
+            <a href="#img2">
+                <img src="https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true" alt="Mommy and Me Image 2"
+                    onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_hover.jpg?raw=true')"
+                    onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true')">
+            </a>
         </div>
         <div class="thumbnail">
-            <a href="#img3"><img src="https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true" alt="Mommy and Me Image 3" onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true')" onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true')"></a>
+            <!-- Image 3 with rollover -->
+            <a href="#img3">
+                <img src="https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true" alt="Mommy and Me Image 3"
+                    onmouseover="rollover(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_hover.jpg?raw=true')"
+                    onmouseout="rollout(this, 'https://github.com/Tierra215/MommyandMe/blob/main/image3_thumb.jpg?raw=true')">
+            </a>
         </div>
 
         <!-- Popup images -->
@@ -158,6 +167,7 @@ Description: This page consists of the gallery.
     <script>
         // Function to preload all gallery images
         function onPageLoad() {
+            // Array of image URLs to preload
             const images = [
                 'https://github.com/Tierra215/MommyandMe/blob/main/image1_thumb.jpg?raw=true',
                 'https://github.com/Tierra215/MommyandMe/blob/main/image2_thumb.jpg?raw=true',
@@ -179,13 +189,16 @@ Description: This page consists of the gallery.
 
         // Function to handle rollover effect
         function rollover(img, hoverSrc) {
+            // Change the image source to the hover version
             img.src = hoverSrc;
         }
 
         // Function to handle rollout effect
         function rollout(img, originalSrc) {
+            // Change the image source back to the original version
             img.src = originalSrc;
         }
     </script>
 </body>
+
 </html>
