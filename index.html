@@ -1,10 +1,9 @@
 <!--
 Author: Tierra Whitley
-Date: July 1, 2024
+Date: June 19, 2024
 File Name: index.html
 Description: This page consists of the index.
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +95,7 @@ Description: This page consists of the index.
         }
 
         /* Style for form section */
-        #invitationForm {
+        #registrationSection {
             margin: 20px auto;
             width: 60%;
             background-color: #444;
@@ -105,19 +104,32 @@ Description: This page consists of the index.
         }
 
         /* Style for form input and submit button */
-        #invitationForm input[type=text], #invitationForm input[type=submit] {
+        #registrationForm input[type=text], 
+        #registrationForm input[type=password], 
+        #registrationForm input[type=email], 
+        #registrationForm input[type=tel],
+        #registrationForm input[type=submit] {
             width: calc(50% - 10px);
             padding: 10px;
             margin: 5px;
             border: none;
             border-radius: 5px;
             font-size: 16px;
+            color: black; /* Ensuring text color is black */
         }
 
-        #invitationForm input[type=submit] {
+        #registrationForm input[type=submit] {
             background-color: #333;
             color: white;
             cursor: pointer;
+        }
+
+        /* Style for error messages */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
         }
 
         /* Style for invitation message section */
@@ -144,13 +156,15 @@ Description: This page consists of the index.
             border-radius: 10px;
         }
 
-        #volunteerForm input[type=text], #volunteerForm input[type=button] {
+        #volunteerForm input[type=text], 
+        #volunteerForm input[type=button] {
             width: calc(50% - 10px);
             padding: 10px;
             margin: 5px;
             border: none;
             border-radius: 5px;
             font-size: 16px;
+            color: black; /* Ensuring text color is black */
         }
 
         #volunteerForm input[type=button] {
@@ -170,53 +184,6 @@ Description: This page consists of the index.
             background-color: #333;
             color: white;
             resize: none;
-        }
-
-        /* Style for registration form */
-        #registrationForm {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #registrationForm label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        #registrationForm input[type=text], 
-        #registrationForm input[type=password], 
-        #registrationForm input[type=email], 
-        #registrationForm input[type=tel] {
-            width: calc(50% - 10px);
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            color: black; /* Ensure text color is black */
-        }
-
-        #registrationForm input[type=radio] {
-            margin-right: 10px;
-        }
-
-        #registrationForm input[type=submit] {
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-
-        .hidden {
-            display: none;
         }
     </style>
 </head>
@@ -264,42 +231,22 @@ Description: This page consists of the index.
             <p><span id="hostNamePlaceholder"></span></p>
         </section>
         
-        <!-- Volunteer Form Section -->
-        <section id="volunteerForm">
-            <h2>Volunteers</h2>
-            <form>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name">
-                <br><br>
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name">
-                <br><br>
-                <input type="button" id="add_button" value="Add Volunteer">
-                <input type="button" id="delete_button" value="Delete Volunteer">
-            </form>
-            <h2>Volunteer List</h2>
-            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
-            <br>
-            <input type="button" id="clear_button" value="Clear Volunteers">
-            <input type="button" id="sort_button" value="Sort By First Name">
-        </section>
-
         <!-- Registration Form Section -->
-        <section id="registrationForm">
+        <section id="registrationSection">
             <h2>Registration Form</h2>
             <form id="registrationForm">
-                <label for="username">Username* (must only contain letters and numbers):</label>
-                <input type="text" id="username" name="username" required>
+                <label for="username">Username* (letters and numbers only):</label>
+                <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]+" required>
                 <span class="error-message" id="usernameError"></span>
                 <br><br>
                 
-                <label for="password">Password* (minimum of 8 characters):</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password">Password* (minimum 8 characters):</label>
+                <input type="password" id="password" name="password" minlength="8" required>
                 <span class="error-message" id="passwordError"></span>
                 <br><br>
                 
-                <label for="passwordVerify">Password Verify* (minimum of 8 characters, must match password):</label>
-                <input type="password" id="passwordVerify" name="passwordVerify" required>
+                <label for="passwordVerify">Verify Password* (must match password):</label>
+                <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
                 <span class="error-message" id="passwordVerifyError"></span>
                 <br><br>
                 
@@ -319,11 +266,11 @@ Description: This page consists of the index.
                 <br><br>
                 
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber">
+                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
                 <span class="error-message" id="phoneNumberError"></span>
                 <br><br>
                 
-                <label>Sign Up Newsletter:</label>
+                <label>Sign Up for Newsletter:</label>
                 <label for="newsletterYes">Yes</label>
                 <input type="radio" id="newsletterYes" name="newsletter" value="yes">
                 <label for="newsletterNo">No</label>
@@ -332,6 +279,26 @@ Description: This page consists of the index.
                 
                 <input type="submit" value="Submit">
             </form>
+        </section>
+
+        <!-- Volunteer Form Section -->
+        <section id="volunteerForm">
+            <h2>Volunteers</h2>
+            <form>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name">
+                <br><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name">
+                <br><br>
+                <input type="button" id="add_button" value="Add Volunteer">
+                <input type="button" id="delete_button" value="Delete Volunteer">
+            </form>
+            <h2>Volunteer List</h2>
+            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
+            <br>
+            <input type="button" id="clear_button" value="Clear Volunteers">
+            <input type="button" id="sort_button" value="Sort By First Name">
         </section>
         
         <!-- Video Section -->
@@ -373,6 +340,116 @@ Description: This page consists of the index.
             document.getElementById('inviteForm').reset();
         });
 
+        // JavaScript for registration form validation
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            var isValid = true;
+
+            // Reset error messages
+            var errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+            // Validation for username (letters and numbers only)
+            var usernameInput = document.getElementById('username');
+            var usernameValue = usernameInput.value.trim();
+            var usernameError = document.getElementById('usernameError');
+            var usernamePattern = /^[a-zA-Z0-9]+$/;
+
+            if (!usernameValue.match(usernamePattern)) {
+                usernameError.textContent = 'Username must only contain letters and numbers.';
+                usernameError.style.display = 'block';
+                isValid = false;
+                usernameInput.focus();
+            }
+
+            // Validation for password (minimum 8 characters)
+            var passwordInput = document.getElementById('password');
+            var passwordValue = passwordInput.value;
+
+            if (passwordValue.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('password').focus();
+                }
+            }
+
+            // Validation for password verification (must match password)
+            var passwordVerifyInput = document.getElementById('passwordVerify');
+            var passwordVerifyValue = passwordVerifyInput.value;
+
+            if (passwordVerifyValue !== passwordValue) {
+                document.getElementById('passwordVerifyError').textContent = 'Passwords must match.';
+                document.getElementById('passwordVerifyError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('passwordVerify').focus();
+                }
+            }
+
+            // Validation for first name (text string)
+            var firstNameInput = document.getElementById('firstName');
+            var firstNameValue = firstNameInput.value.trim();
+
+            if (firstNameValue === '') {
+                document.getElementById('firstNameError').textContent = 'First Name is required.';
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('firstName').focus();
+                }
+            }
+
+            // Validation for last name (text string)
+            var lastNameInput = document.getElementById('lastName');
+            var lastNameValue = lastNameInput.value.trim();
+
+            if (lastNameValue === '') {
+                document.getElementById('lastNameError').textContent = 'Last Name is required.';
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('lastName').focus();
+                }
+            }
+
+            // Validation for email (xxx@xxx.xxx format)
+            var emailInput = document.getElementById('email');
+            var emailValue = emailInput.value.trim();
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailValue !== '' && !emailValue.match(emailPattern)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('email').focus();
+                }
+            }
+
+            // Validation for phone number ((xxx) xxx-xxxx format)
+            var phoneNumberInput = document.getElementById('phoneNumber');
+            var phoneNumberValue = phoneNumberInput.value.trim();
+            var phoneNumberPattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+
+            if (phoneNumberValue !== '' && !phoneNumberValue.match(phoneNumberPattern)) {
+                document.getElementById('phoneNumberError').textContent = 'Invalid phone number format.';
+                document.getElementById('phoneNumberError').style.display = 'block';
+                isValid = false;
+                if (isValid) {
+                    document.getElementById('phoneNumber').focus();
+                }
+            }
+
+            // Default focus to first erroneous input field
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission
+                usernameInput.focus(); // Set focus to the first erroneous field
+            }
+        });
+        
         // JavaScript for cycling banner images
         var bannerIndex = 0;
         var banners = document.querySelectorAll('#banner img');
@@ -386,112 +463,6 @@ Description: This page consists of the index.
         }
 
         setInterval(cycleBanners, 5000); // Change image every 5 seconds
-
-        // JavaScript for form validation
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Reset error messages
-            var errorMessages = document.querySelectorAll('.error-message');
-            errorMessages.forEach(function(element) {
-                element.textContent = '';
-            });
-
-            // Get form values
-            var username = document.getElementById('username').value.trim();
-            var password = document.getElementById('password').value.trim();
-            var passwordVerify = document.getElementById('passwordVerify').value.trim();
-            var firstName = document.getElementById('firstName').value.trim();
-            var lastName = document.getElementById('lastName').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var phoneNumber = document.getElementById('phoneNumber').value.trim();
-
-            // Regular expressions for validation
-            var usernameRegex = /^[a-zA-Z0-9]+$/;
-            var passwordRegex = /.{8,}/;
-            var nameRegex = /^[a-zA-Z]+$/;
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            var phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
-
-            // Validation flags
-            var isValid = true;
-
-            // Validate Username
-            if (!username) {
-                document.getElementById('usernameError').textContent = 'Username is required.';
-                isValid = false;
-            } else if (!usernameRegex.test(username)) {
-                document.getElementById('usernameError').textContent = 'Username must contain only letters and numbers.';
-                isValid = false;
-            }
-
-            // Validate Password
-            if (!password) {
-                document.getElementById('passwordError').textContent = 'Password is required.';
-                isValid = false;
-            } else if (!passwordRegex.test(password)) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
-                isValid = false;
-            }
-
-            // Validate Password Verify
-            if (!passwordVerify) {
-                document.getElementById('passwordVerifyError').textContent = 'Please verify your password.';
-                isValid = false;
-            } else if (!passwordRegex.test(passwordVerify)) {
-                document.getElementById('passwordVerifyError').textContent = 'Password must be at least 8 characters long.';
-                isValid = false;
-            } else if (password !== passwordVerify) {
-                document.getElementById('passwordVerifyError').textContent = 'Passwords do not match.';
-                isValid = false;
-            }
-
-            // Validate First Name
-            if (!firstName) {
-                document.getElementById('firstNameError').textContent = 'First Name is required.';
-                isValid = false;
-            } else if (!nameRegex.test(firstName)) {
-                document.getElementById('firstNameError').textContent = 'First Name must contain only letters.';
-                isValid = false;
-            }
-
-            // Validate Last Name
-            if (!lastName) {
-                document.getElementById('lastNameError').textContent = 'Last Name is required.';
-                isValid = false;
-            } else if (!nameRegex.test(lastName)) {
-                document.getElementById('lastNameError').textContent = 'Last Name must contain only letters.';
-                isValid = false;
-            }
-
-            // Validate Email
-            if (email && !emailRegex.test(email)) {
-                document.getElementById('emailError').textContent = 'Invalid email format.';
-                isValid = false;
-            }
-
-            // Validate Phone Number
-            if (phoneNumber && !phoneRegex.test(phoneNumber)) {
-                document.getElementById('phoneNumberError').textContent = 'Invalid phone number format. Use (xxx) xxx-xxxx.';
-                isValid = false;
-            }
-
-            // If form is valid, proceed with submission
-            if (isValid) {
-                // Submit the form or perform further actions
-                alert('Form submitted successfully!');
-                document.getElementById('registrationForm').reset(); // Optionally, reset the form after submission
-            } else {
-                // Focus on the first field with an error message
-                var errorInputs = document.querySelectorAll('.error-message');
-                for (var i = 0; i < errorInputs.length; i++) {
-                    if (errorInputs[i].textContent !== '') {
-                        errorInputs[i].previousElementSibling.focus(); // Focus on the input field with an error message
-                        break;
-                    }
-                }
-            }
-        });
     </script>
 </body>
 </html>
