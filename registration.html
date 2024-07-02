@@ -11,96 +11,26 @@ Description: Registration form for user account creation.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Importing the Comic Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: pink;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .logo {
-            display: block;
-            margin: 0 auto;
-            margin-top: 10px; /* Adjusting the margin to push it to the top */
-        }
-
-        header, footer {
-            background-color: #333;
-            padding: 10px 0;
-            color: white;
-        }
-
-        nav a {
-            color: black;  /* Change link color to black */
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
-        }
-
-        /* Form styling */
-        form {
-            width: 50%;
-            margin: 20px auto;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        form label {
-            display: inline-block;
-            width: 150px;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        form input[type=text], form input[type=password], form input[type=email], form input[type=tel] {
-            width: calc(100% - 170px);
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        form input[type=radio] {
-            margin-right: 10px;
-        }
-
-        form input[type=submit] {
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        /* Error message styling */
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-            text-align: left;
-        }
+        /* Additional styles specific to registration form if needed */
     </style>
 </head>
 
 <body>
+    <!-- Banner Section -->
+    <div id="banner">
+        <img src="banner1.png" alt="Banner Image 1" class="visible">
+        <img src="banner2.png" alt="Banner Image 2" class="hidden">
+        <img src="banner3.png" alt="Banner Image 3" class="hidden">
+    </div>
+
     <header>
         <img src="logo.png" alt="Logo" class="logo">
-        <h1>User Registration</h1>
+        <h1>Welcome to Registration</h1>
     </header>
 
     <nav>
@@ -112,137 +42,127 @@ Description: Registration form for user account creation.
     </nav>
 
     <main>
-        <form id="registrationForm" onsubmit="return validateForm()">
-            <label for="username">Username*:</label>
-            <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]+" title="Username must only contain letters and numbers." required>
-            <br><br>
-            <label for="password">Password*:</label>
-            <input type="password" id="password" name="password" minlength="8" required>
-            <br><br>
-            <label for="passwordVerify">Verify Password*:</label>
-            <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
-            <br><br>
-            <label for="firstName">First Name*:</label>
-            <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+" title="First name must only contain letters." required>
-            <br><br>
-            <label for="lastName">Last Name*:</label>
-            <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+" title="Last name must only contain letters." required>
-            <br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <br><br>
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}" title="Phone number must be in (xxx) xxx-xxxx format.">
-            <br><br>
-            <label>Sign Up for Newsletter:</label>
-            <label for="newsletterYes">Yes</label>
-            <input type="radio" id="newsletterYes" name="signUpNewsletter" value="yes">
-            <label for="newsletterNo">No</label>
-            <input type="radio" id="newsletterNo" name="signUpNewsletter" value="no" checked>
-            <br><br>
-            <input type="submit" value="Register">
-        </form>
+        <!-- Registration Form Section -->
+        <section id="registrationForm">
+            <h2>Registration Form</h2>
+            <form id="registerForm">
+                <label for="username">Username*:</label>
+                <input type="text" id="username" name="username" required>
+                <br><span class="error-message" id="usernameError"></span><br>
 
-        <!-- Error display area -->
-        <div id="errorList"></div>
+                <label for="password">Password*:</label>
+                <input type="password" id="password" name="password" required minlength="8">
+                <br><span class="error-message" id="passwordError"></span><br>
+
+                <label for="passwordVerify">Verify Password*:</label>
+                <input type="password" id="passwordVerify" name="passwordVerify" required minlength="8">
+                <br><span class="error-message" id="passwordVerifyError"></span><br>
+
+                <label for="firstName">First Name*:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <br><span class="error-message" id="firstNameError"></span><br>
+
+                <label for="lastName">Last Name*:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <br><span class="error-message" id="lastNameError"></span><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <br><span class="error-message" id="emailError"></span><br>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
+                <br><span class="error-message" id="phoneNumberError"></span><br>
+
+                <label>Sign Up for Newsletter:</label>
+                <input type="radio" id="signupYes" name="signupNewsletter" value="yes">
+                <label for="signupYes">Yes</label>
+                <input type="radio" id="signupNo" name="signupNewsletter" value="no" checked>
+                <label for="signupNo">No</label>
+                <br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
     </main>
 
     <footer>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="aboutme.html">About Me</a>
-            <a href="myinterests.html">My Interests</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contactme.html">Contact Me</a>
+        <p>&copy; 2024 Mommy and Me</p>
+        <nav class="footer-nav">
+            <a href="policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
         </nav>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
     <script>
-        function validateForm() {
-            // Reset previous error messages
-            document.getElementById('errorList').innerHTML = '';
+        // JavaScript for registration form validation
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-            // Fetch form input values
-            var username = document.getElementById('username').value.trim();
-            var password = document.getElementById('password').value.trim();
-            var passwordVerify = document.getElementById('passwordVerify').value.trim();
-            var firstName = document.getElementById('firstName').value.trim();
-            var lastName = document.getElementById('lastName').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var phoneNumber = document.getElementById('phoneNumber').value.trim();
+            // Validate form inputs here
+            var isValid = true;
 
-            // Validate username (letters and numbers only)
+            // Example validation checks (modify as needed)
+            var username = document.getElementById('username').value;
             if (!/^[a-zA-Z0-9]+$/.test(username)) {
-                displayError('Username must only contain letters and numbers.', 'username');
-                return false;
+                document.getElementById('usernameError').textContent = 'Username must contain only letters and numbers.';
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').textContent = '';
             }
 
-            // Validate password (minimum 8 characters)
+            var password = document.getElementById('password').value;
             if (password.length < 8) {
-                displayError('Password must be at least 8 characters long.', 'password');
-                return false;
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').textContent = '';
             }
 
-            // Validate password verification
-            if (password !== passwordVerify) {
-                displayError('Passwords do not match.', 'passwordVerify');
-                return false;
+            var passwordVerify = document.getElementById('passwordVerify').value;
+            if (passwordVerify.length < 8 || passwordVerify !== password) {
+                document.getElementById('passwordVerifyError').textContent = 'Passwords must match and be at least 8 characters long.';
+                isValid = false;
+            } else {
+                document.getElementById('passwordVerifyError').textContent = '';
             }
 
-            // Validate first name (text string)
+            var firstName = document.getElementById('firstName').value;
             if (!/^[a-zA-Z]+$/.test(firstName)) {
-                displayError('First name must only contain letters.', 'firstName');
-                return false;
+                document.getElementById('firstNameError').textContent = 'First Name must contain only letters.';
+                isValid = false;
+            } else {
+                document.getElementById('firstNameError').textContent = '';
             }
 
-            // Validate last name (text string)
+            var lastName = document.getElementById('lastName').value;
             if (!/^[a-zA-Z]+$/.test(lastName)) {
-                displayError('Last name must only contain letters.', 'lastName');
-                return false;
+                document.getElementById('lastNameError').textContent = 'Last Name must contain only letters.';
+                isValid = false;
+            } else {
+                document.getElementById('lastNameError').textContent = '';
             }
 
-            // Validate email format
-            if (email !== '' && !isValidEmail(email)) {
-                displayError('Invalid email format.', 'email');
-                return false;
+            // Optionally add email and phone number validations similarly
+
+            // If form is valid, submit it or proceed to next step
+            if (isValid) {
+                // Submit form or proceed to next step
+                document.getElementById('registerForm').reset(); // Reset form after successful submission
+                alert('Form submitted successfully!');
+                // Redirect to confirmation page or perform other actions
+            } else {
+                // If form is invalid, focus on the first erroneous field
+                var errorInputs = document.querySelectorAll('.error-message');
+                for (var i = 0; i < errorInputs.length; i++) {
+                    if (errorInputs[i].textContent !== '') {
+                        errorInputs[i].previousElementSibling.focus(); // Focus on input field
+                        break;
+                    }
+                }
             }
-
-            // Validate phone number format
-            if (phoneNumber !== '' && !isValidPhoneNumber(phoneNumber)) {
-                displayError('Phone number must be in (xxx) xxx-xxxx format.', 'phoneNumber');
-                return false;
-            }
-
-            // Optional: Validate newsletter signup
-
-            // Display success message and optionally clear form inputs
-            alert('Registration successful!');
-            document.getElementById('registrationForm').reset();
-            return true;
-        }
-
-        // Function to display error messages
-        function displayError(message, inputFieldId) {
-            var errorList = document.getElementById('errorList');
-            var errorMessage = document.createElement('p');
-            errorMessage.classList.add('error-message');
-            errorMessage.textContent = message;
-            errorList.appendChild(errorMessage);
-
-            // Set focus to the erroneous input field
-            document.getElementById(inputFieldId).focus();
-        }
-
-        // Function to validate email format
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // Function to validate phone number format (xxx) xxx-xxxx
-        function isValidPhoneNumber(phoneNumber) {
-            return /^\(\d{3}\) \d{3}-\d{4}$/.test(phoneNumber);
-        }
+        });
     </script>
 </body>
 
