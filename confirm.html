@@ -1,0 +1,50 @@
+<!--
+Author: Tierra Whitley
+Date: July 1, 2024
+File Name: confirm.html
+Description: This page uses JavaScript to read the cookies set by registration.html. It displays the saved registration information in a name/value pair format.
+
+<!-- confirm.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmation</title>
+</head>
+<body>
+    <h2>Registration Confirmation</h2>
+    <script>
+        // Function to read cookies
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+                if (name === cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+
+        // Read cookie data
+        var username = getCookie('username');
+        var password = getCookie('password');
+        var firstName = getCookie('firstName');
+        var lastName = getCookie('lastName');
+        var email = getCookie('email');
+        var phoneNumber = getCookie('phoneNumber');
+        var signUpNewsletter = getCookie('signUpNewsletter');
+
+        // Display information
+        document.write(`<p><strong>Username:</strong> ${username}</p>`);
+        document.write(`<p><strong>Password:</strong> ${password}</p>`);
+        document.write(`<p><strong>First Name:</strong> ${firstName}</p>`);
+        document.write(`<p><strong>Last Name:</strong> ${lastName}</p>`);
+        document.write(`<p><strong>Email:</strong> ${email}</p>`);
+        document.write(`<p><strong>Phone Number:</strong> ${phoneNumber}</p>`);
+        document.write(`<p><strong>Sign Up for Newsletter:</strong> ${signUpNewsletter}</p>`);
+    </script>
+</body>
+</html>
