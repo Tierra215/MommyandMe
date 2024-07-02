@@ -5,165 +5,74 @@ File Name: registration.html
 Description: Registration form for user account creation.
 -->
 
+<!-- registration.html -->
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Importing the Comic Sans font -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Additional styles specific to registration form if needed */
-    </style>
-</head>
-
-<body>
-    <!-- Banner Section -->
-    <div id="banner">
-        <img src="banner1.png" alt="Banner Image 1" class="visible">
-        <img src="banner2.png" alt="Banner Image 2" class="hidden">
-        <img src="banner3.png" alt="Banner Image 3" class="hidden">
-    </div>
-
-    <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <h1>Welcome to Registration</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="aboutme.html">About Me</a>
-        <a href="myinterests.html">My Interests</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contactme.html">Contact Me</a>
-    </nav>
-
-    <main>
-        <!-- Registration Form Section -->
-        <section id="registrationForm">
-            <h2>Registration Form</h2>
-            <form id="registerForm">
-                <label for="username">Username*:</label>
-                <input type="text" id="username" name="username" required>
-                <br><span class="error-message" id="usernameError"></span><br>
-
-                <label for="password">Password*:</label>
-                <input type="password" id="password" name="password" required minlength="8">
-                <br><span class="error-message" id="passwordError"></span><br>
-
-                <label for="passwordVerify">Verify Password*:</label>
-                <input type="password" id="passwordVerify" name="passwordVerify" required minlength="8">
-                <br><span class="error-message" id="passwordVerifyError"></span><br>
-
-                <label for="firstName">First Name*:</label>
-                <input type="text" id="firstName" name="firstName" required>
-                <br><span class="error-message" id="firstNameError"></span><br>
-
-                <label for="lastName">Last Name*:</label>
-                <input type="text" id="lastName" name="lastName" required>
-                <br><span class="error-message" id="lastNameError"></span><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <br><span class="error-message" id="emailError"></span><br>
-
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
-                <br><span class="error-message" id="phoneNumberError"></span><br>
-
-                <label>Sign Up for Newsletter:</label>
-                <input type="radio" id="signupYes" name="signupNewsletter" value="yes">
-                <label for="signupYes">Yes</label>
-                <input type="radio" id="signupNo" name="signupNewsletter" value="no" checked>
-                <label for="signupNo">No</label>
-                <br><br>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Mommy and Me</p>
-        <nav class="footer-nav">
-            <a href="policy.html" class="footer-link">Privacy Policy</a>
-            <a href="terms.html" class="footer-link">Terms of Service</a>
-        </nav>
-    </footer>
-
-    <script src="script.js"></script>
     <script>
-        // JavaScript for registration form validation
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Validate form inputs here
-            var isValid = true;
-
-            // Example validation checks (modify as needed)
+        // Function to handle form submission
+        function submitForm() {
+            // Collect form data
             var username = document.getElementById('username').value;
-            if (!/^[a-zA-Z0-9]+$/.test(username)) {
-                document.getElementById('usernameError').textContent = 'Username must contain only letters and numbers.';
-                isValid = false;
-            } else {
-                document.getElementById('usernameError').textContent = '';
-            }
-
             var password = document.getElementById('password').value;
-            if (password.length < 8) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
-                isValid = false;
-            } else {
-                document.getElementById('passwordError').textContent = '';
-            }
-
-            var passwordVerify = document.getElementById('passwordVerify').value;
-            if (passwordVerify.length < 8 || passwordVerify !== password) {
-                document.getElementById('passwordVerifyError').textContent = 'Passwords must match and be at least 8 characters long.';
-                isValid = false;
-            } else {
-                document.getElementById('passwordVerifyError').textContent = '';
-            }
-
             var firstName = document.getElementById('firstName').value;
-            if (!/^[a-zA-Z]+$/.test(firstName)) {
-                document.getElementById('firstNameError').textContent = 'First Name must contain only letters.';
-                isValid = false;
-            } else {
-                document.getElementById('firstNameError').textContent = '';
-            }
-
             var lastName = document.getElementById('lastName').value;
-            if (!/^[a-zA-Z]+$/.test(lastName)) {
-                document.getElementById('lastNameError').textContent = 'Last Name must contain only letters.';
-                isValid = false;
-            } else {
-                document.getElementById('lastNameError').textContent = '';
-            }
+            var email = document.getElementById('email').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var signUpNewsletter = document.querySelector('input[name="signUpNewsletter"]:checked').value;
 
-            // Optionally add email and phone number validations similarly
+            // Construct query string
+            var queryString = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&`;
+            queryString += `firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&`;
+            queryString += `email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&`;
+            queryString += `signUpNewsletter=${encodeURIComponent(signUpNewsletter)}`;
 
-            // If form is valid, submit it or proceed to next step
-            if (isValid) {
-                // Submit form or proceed to next step
-                document.getElementById('registerForm').reset(); // Reset form after successful submission
-                alert('Form submitted successfully!');
-                // Redirect to confirmation page or perform other actions
-            } else {
-                // If form is invalid, focus on the first erroneous field
-                var errorInputs = document.querySelectorAll('.error-message');
-                for (var i = 0; i < errorInputs.length; i++) {
-                    if (errorInputs[i].textContent !== '') {
-                        errorInputs[i].previousElementSibling.focus(); // Focus on input field
-                        break;
-                    }
-                }
-            }
-        });
+            // Set cookies
+            document.cookie = `username=${encodeURIComponent(username)};`;
+            document.cookie = `password=${encodeURIComponent(password)};`;
+            document.cookie = `firstName=${encodeURIComponent(firstName)};`;
+            document.cookie = `lastName=${encodeURIComponent(lastName)};`;
+            document.cookie = `email=${encodeURIComponent(email)};`;
+            document.cookie = `phoneNumber=${encodeURIComponent(phoneNumber)};`;
+            document.cookie = `signUpNewsletter=${encodeURIComponent(signUpNewsletter)};`;
+
+            // Redirect to confirm.html with query string
+            window.location.href = `confirm.html?${queryString}`;
+        }
     </script>
-</body>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="submitForm(); return false;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8"><br><br>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\\(\\d{3}\\) \\d{3}-\\d{4}"><br><br>
+
+        <label>Sign Up for Newsletter:</label>
+        <input type="radio" id="yes" name="signUpNewsletter" value="Yes" checked>
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="signUpNewsletter" value="No">
+        <label for="no">No</label><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
 </html>
