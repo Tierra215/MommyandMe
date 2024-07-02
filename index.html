@@ -1,3 +1,10 @@
+<!--
+Author: Tierra Whitley
+Date: July 1, 2024
+File Name: index.html
+Description: This page consists of the index.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +16,6 @@
     <!-- Importing the Comic Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Your existing CSS styles */
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             background-color: pink;
@@ -19,27 +25,86 @@
             padding: 0;
         }
         
-        /* Additional styles for registration form */
-        #registrationForm {
+        .logo {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px; /* Adjusting the margin to push it to the top */
+        }
+        
+        header, footer {
+            background-color: #333;
+            padding: 10px 0;
+            color: white;
+        }
+        
+        nav a {
+            color: black;  /* Change link color to black */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;  /* Add underline on hover */
+        }
+        
+        /* Banner section */
+        #banner {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #banner img {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .hidden {
+            opacity: 0;
+        }
+        
+        .visible {
+            opacity: 1;
+        }
+        
+        .homepage .row {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .column {
+            flex: 1;
+            padding: 20px;
+            background-color: #444;
+            margin: 10px;
+        }
+        
+        .footer-nav .footer-link {
+            margin: 0 10px;
+            color: black; /* Change link color to black */
+        }
+
+        .footer-nav .footer-link:hover {
+            text-decoration: underline;  /* Add underline on hover */
+        }
+
+        /* Style for form section */
+        #invitationForm, #registrationForm {
             margin: 20px auto;
             width: 60%;
             background-color: #444;
             padding: 20px;
             border-radius: 10px;
         }
-        
-        #registrationForm label {
-            display: block;
-            margin-bottom: 5px;
-            color: white;
-        }
-        
-        #registrationForm input[type=text],
-        #registrationForm input[type=password],
-        #registrationForm input[type=email],
-        #registrationForm input[type=tel],
-        #registrationForm input[type=submit],
-        #registrationForm input[type=radio] {
+
+        /* Style for form input and submit button */
+        #invitationForm input[type=text], #registrationForm input[type=text], #registrationForm input[type=password], #registrationForm input[type=email], #registrationForm input[type=tel], #invitationForm input[type=submit], #registrationForm input[type=submit] {
             width: calc(50% - 10px);
             padding: 10px;
             margin: 5px;
@@ -47,15 +112,78 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        
-        #registrationForm input[type=submit] {
+
+        #registrationForm input[type=password], #registrationForm input[type=email], #registrationForm input[type=tel] {
+            width: calc(100% - 10px);
+        }
+
+        #invitationForm input[type=submit], #registrationForm input[type=submit] {
             background-color: #333;
             color: white;
             cursor: pointer;
         }
+
+        /* Style for invitation message section */
+        #invitationMessage {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            display: none; /* Initially hide the invitation message section */
+        }
+
+        #invitationMessage p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for volunteer section */
+        #volunteerForm {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #volunteerForm input[type=text], #volunteerForm input[type=button] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #volunteerForm input[type=button] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        #volunteerList {
+            width: calc(100% - 20px);
+            height: 200px;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            resize: none;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: left;
+        }
     </style>
 </head>
-
 <body>
     <!-- Banner Section -->
     <div id="banner">
@@ -99,7 +227,44 @@
             <p>Thanks!</p>
             <p><span id="hostNamePlaceholder"></span></p>
         </section>
-        
+
+        <!-- Registration Form Section -->
+        <section id="registrationForm">
+            <h2>Registration Form</h2>
+            <form id="registrationForm">
+                <label for="username">Username*:</label>
+                <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]+" title="Username must only contain letters and numbers." required>
+                <br><br>
+                <label for="password">Password*:</label>
+                <input type="password" id="password" name="password" minlength="8" required>
+                <br><br>
+                <label for="passwordVerify">Verify Password*:</label>
+                <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
+                <br><br>
+                <label for="firstName">First Name*:</label>
+                <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+" title="First name must only contain letters." required>
+                <br><br>
+                <label for="lastName">Last Name*:</label>
+                <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+" title="Last name must only contain letters." required>
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <br><br>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}" title="Phone number must be in (xxx) xxx-xxxx format.">
+                <br><br>
+                <label>Sign Up for Newsletter:</label>
+                <label for="newsletterYes">Yes</label>
+                <input type="radio" id="newsletterYes" name="signUpNewsletter" value="yes">
+                <label for="newsletterNo">No</label>
+                <input type="radio" id="newsletterNo" name="signUpNewsletter" value="no" checked>
+                <br><br>
+                <input type="submit" value="Register">
+            </form>
+            <!-- Error display area -->
+            <div id="errorList"></div>
+        </section>
+
         <!-- Volunteer Form Section -->
         <section id="volunteerForm">
             <h2>Volunteers</h2>
@@ -112,65 +277,23 @@
                 <br><br>
                 <input type="button" id="add_button" value="Add Volunteer">
                 <input type="button" id="delete_button" value="Delete Volunteer">
-            </form>
-            <h2>Volunteer List</h2>
-            <textarea id="volunteerList" rows="10" cols="60" readonly></textarea>
-            <br>
-            <input type="button" id="clear_button" value="Clear Volunteers">
-            <input type="button" id="sort_button" value="Sort By First Name">
-        </section>
-        
-        <!-- Registration Form Section -->
-        <section id="registrationForm">
-            <h2>Registration Form</h2>
-            <form id="registerForm" action="confirmation.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required pattern="[a-zA-Z0-9]+" title="Must only contain letters and numbers">
                 <br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" minlength="8" required>
-                <br><br>
-                <label for="passwordVerify">Verify Password:</label>
-                <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
-                <br><br>
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required>
-                <br><br>
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required>
-                <br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <br><br>
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
-                <br><br>
-                <label>Sign Up for Newsletter:</label>
-                <label><input type="radio" name="signupNewsletter" value="yes"> Yes</label>
-                <label><input type="radio" name="signupNewsletter" value="no"> No</label>
-                <br><br>
-                <input type="submit" value="Register">
+                <textarea id="volunteerList" readonly></textarea>
             </form>
         </section>
-        
-        <!-- Video Section -->
-        <div class="row">
-            <div class="column">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/T6vA3WZHltc?si=mv4-ksJXvVh4KqQa" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
     </main>
-    
+
     <footer>
-        <p>&copy; 2024 Mommy and Me</p>
         <nav class="footer-nav">
-            <a href="policy.html" class="footer-link">Privacy Policy</a>
-            <a href="terms.html" class="footer-link">Terms of Service</a>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="aboutme.html" class="footer-link">About Me</a>
+            <a href="myinterests.html" class="footer-link">My Interests</a>
+            <a href="gallery.html" class="footer-link">Gallery</a>
+            <a href="contactme.html" class="footer-link">Contact Me</a>
         </nav>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="volunteers.js"></script>
+    <script src="scripts.js"></script>
     <script>
         // JavaScript for handling form submission and displaying invitation message
         document.getElementById('inviteForm').addEventListener('submit', function(event) {
@@ -192,52 +315,91 @@
             document.getElementById('inviteForm').reset();
         });
 
-        // JavaScript for cycling banner images
-        var bannerIndex = 0;
-        var banners = document.querySelectorAll('#banner img');
+        // JavaScript for handling registration form submission and validation
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
 
-        function cycleBanners() {
-            banners[bannerIndex].classList.remove('visible');
-            banners[bannerIndex].classList.add('hidden');
-            bannerIndex = (bannerIndex + 1) % banners.length;
-            banners[bannerIndex].classList.remove('hidden');
-            banners[bannerIndex].classList.add('visible');
+            // Reset previous error messages
+            document.getElementById('errorList').innerHTML = '';
+
+            // Fetch form input values
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var passwordVerify = document.getElementById('passwordVerify').value.trim();
+            var firstName = document.getElementById('firstName').value.trim();
+            var lastName = document.getElementById('lastName').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phoneNumber = document.getElementById('phoneNumber').value.trim();
+            var signUpNewsletter = document.querySelector('input[name="signUpNewsletter"]:checked').value;
+
+            // Validate username (letters and numbers only)
+            if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                displayError('Username must only contain letters and numbers.', 'username');
+                return;
+            }
+
+            // Validate password (minimum 8 characters)
+            if (password.length < 8) {
+                displayError('Password must be at least 8 characters long.', 'password');
+                return;
+            }
+
+            // Validate password verification
+            if (password !== passwordVerify) {
+                displayError('Passwords do not match.', 'passwordVerify');
+                return;
+            }
+
+            // Validate first name (text string)
+            if (!/^[a-zA-Z]+$/.test(firstName)) {
+                displayError('First name must only contain letters.', 'firstName');
+                return;
+            }
+
+            // Validate last name (text string)
+            if (!/^[a-zA-Z]+$/.test(lastName)) {
+                displayError('Last name must only contain letters.', 'lastName');
+                return;
+            }
+
+            // Validate email format
+            if (email !== '' && !isValidEmail(email)) {
+                displayError('Invalid email format.', 'email');
+                return;
+            }
+
+            // Validate phone number format
+            if (phoneNumber !== '' && !isValidPhoneNumber(phoneNumber)) {
+                displayError('Phone number must be in (xxx) xxx-xxxx format.', 'phoneNumber');
+                return;
+            }
+
+            // Display success message and optionally clear form inputs
+            alert('Registration successful!');
+            document.getElementById('registrationForm').reset();
+        });
+
+        // Function to display error messages
+        function displayError(message, inputFieldId) {
+            var errorList = document.getElementById('errorList');
+            var errorMessage = document.createElement('p');
+            errorMessage.classList.add('error-message');
+            errorMessage.textContent = message;
+            errorList.appendChild(errorMessage);
+
+            // Set focus to the erroneous input field
+            document.getElementById(inputFieldId).focus();
         }
 
-        setInterval(cycleBanners, 5000); // Change image every 5 seconds
+        // Function to validate email format
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
 
-        // Example JavaScript for form validation
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            // Add your validation logic here
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var passwordVerify = document.getElementById('passwordVerify').value;
-            var firstName = document.getElementById('firstName').value;
-            var lastName = document.getElementById('lastName').value;
-            var email = document.getElementById('email').value;
-            var phoneNumber = document.getElementById('phoneNumber').value;
-            var signupNewsletter = document.querySelector('input[name="signupNewsletter"]:checked');
-
-            // Example validation for password match
-            if (password !== passwordVerify) {
-                alert('Passwords do not match!');
-                event.preventDefault(); // Prevent form submission
-                return;
-            }
-
-            // Example validation for phone number format
-            var phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
-            if (!phonePattern.test(phoneNumber)) {
-                alert('Phone number must be in (xxx) xxx-xxxx format!');
-                event.preventDefault(); // Prevent form submission
-                return;
-            }
-
-            // Add more validations as needed
-
-            // Form validation passed, proceed with submission
-            // Optionally, you can submit the form here or let it proceed naturally
-        });
+        // Function to validate phone number format (xxx) xxx-xxxx
+        function isValidPhoneNumber(phoneNumber) {
+            return /^\(\d{3}\) \d{3}-\d{4}$/.test(phoneNumber);
+        }
     </script>
 </body>
 
