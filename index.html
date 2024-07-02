@@ -19,34 +19,34 @@ Description: This page consists of the index.
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             background-color: pink;
-            color: white;
+            color: black; /* Ensure text color is black */
             text-align: center;
             margin: 0;
             padding: 0;
         }
-        
+
         .logo {
             display: block;
             margin: 0 auto;
             margin-top: 10px; /* Adjusting the margin to push it to the top */
         }
-        
+
         header, footer {
             background-color: #333;
             padding: 10px 0;
             color: white;
         }
-        
+
         nav a {
-            color: black;  /* Change link color to black */
+            color: black; /* Change link color to black */
             text-decoration: none;
             margin: 0 10px;
         }
-        
+
         nav a:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline; /* Add underline on hover */
         }
-        
+
         /* Banner section */
         #banner {
             width: 100%;
@@ -54,7 +54,7 @@ Description: This page consists of the index.
             overflow: hidden;
             position: relative;
         }
-        
+
         #banner img {
             width: 100%;
             height: 300px;
@@ -63,39 +63,39 @@ Description: This page consists of the index.
             left: 0;
             transition: opacity 1s ease-in-out;
         }
-        
+
         .hidden {
             opacity: 0;
         }
-        
+
         .visible {
             opacity: 1;
         }
-        
+
         .homepage .row {
             display: flex;
             justify-content: center;
             margin: 20px 0;
         }
-        
+
         .column {
             flex: 1;
             padding: 20px;
             background-color: #444;
             margin: 10px;
         }
-        
+
         .footer-nav .footer-link {
             margin: 0 10px;
             color: black; /* Change link color to black */
         }
 
         .footer-nav .footer-link:hover {
-            text-decoration: underline;  /* Add underline on hover */
+            text-decoration: underline; /* Add underline on hover */
         }
 
-        /* Style for form section */
-        #invitationForm, #registrationForm {
+        /* Style for registration form section */
+        #registrationForm {
             margin: 20px auto;
             width: 60%;
             background-color: #444;
@@ -104,7 +104,12 @@ Description: This page consists of the index.
         }
 
         /* Style for form input and submit button */
-        #invitationForm input[type=text], #registrationForm input[type=text], #registrationForm input[type=password], #registrationForm input[type=email], #registrationForm input[type=tel], #invitationForm input[type=submit], #registrationForm input[type=submit] {
+        #registrationForm input[type=text],
+        #registrationForm input[type=password],
+        #registrationForm input[type=email],
+        #registrationForm input[type=tel],
+        #registrationForm input[type=submit],
+        #registrationForm input[type=radio] {
             width: calc(50% - 10px);
             padding: 10px;
             margin: 5px;
@@ -113,77 +118,21 @@ Description: This page consists of the index.
             font-size: 16px;
         }
 
-        #registrationForm input[type=password], #registrationForm input[type=email], #registrationForm input[type=tel] {
-            width: calc(100% - 10px);
-        }
-
-        #invitationForm input[type=submit], #registrationForm input[type=submit] {
+        #registrationForm input[type=submit] {
             background-color: #333;
             color: white;
             cursor: pointer;
         }
 
-        /* Style for invitation message section */
-        #invitationMessage {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-            display: none; /* Initially hide the invitation message section */
-        }
-
-        #invitationMessage p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        /* Style for volunteer section */
-        #volunteerForm {
-            margin: 20px auto;
-            width: 60%;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #volunteerForm input[type=text], #volunteerForm input[type=button] {
-            width: calc(50% - 10px);
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        #volunteerForm input[type=button] {
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-        }
-
-        #volunteerList {
-            width: calc(100% - 20px);
-            height: 200px;
-            margin: 5px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: #333;
-            color: white;
-            resize: none;
-        }
-
-        /* Error message styling */
+        /* Error message style */
         .error-message {
             color: red;
             font-size: 14px;
             margin-top: 5px;
-            text-align: left;
         }
     </style>
 </head>
+
 <body>
     <!-- Banner Section -->
     <div id="banner">
@@ -196,7 +145,7 @@ Description: This page consists of the index.
         <img src="logo.png" alt="Logo" class="logo">
         <h1>Welcome to My Website</h1>
     </header>
-    
+
     <nav>
         <a href="index.html">Home</a>
         <a href="aboutme.html">About Me</a>
@@ -204,202 +153,148 @@ Description: This page consists of the index.
         <a href="gallery.html">Gallery</a>
         <a href="contactme.html">Contact Me</a>
     </nav>
-    
+
     <main class="homepage">
-        <!-- Invitation Form Section -->
-        <section id="invitationForm">
-            <h2>Invitation Form</h2>
-            <form id="inviteForm">
-                <label for="recipientName">Recipient's Name:</label>
-                <input type="text" id="recipientName" name="recipientName" required>
-                <br><br>
-                <label for="hostName">Your Name:</label>
-                <input type="text" id="hostName" name="hostName" required>
-                <br><br>
-                <input type="submit" value="Generate Invitation">
-            </form>
-        </section>
-
-        <section id="invitationMessage">
-            <h2>Invitation Message</h2>
-            <p>Hello <span id="recipientNamePlaceholder"></span>!</p>
-            <p>You have been invited to volunteer for an event held on July 1st. Please respond to this email to sign up as a volunteer.</p>
-            <p>Thanks!</p>
-            <p><span id="hostNamePlaceholder"></span></p>
-        </section>
-
         <!-- Registration Form Section -->
         <section id="registrationForm">
             <h2>Registration Form</h2>
-            <form id="registrationForm">
+            <form id="registerForm">
                 <label for="username">Username*:</label>
-                <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]+" title="Username must only contain letters and numbers." required>
-                <br><br>
+                <input type="text" id="username" name="username" required>
+                <br><span class="error-message" id="usernameError"></span><br>
+
                 <label for="password">Password*:</label>
-                <input type="password" id="password" name="password" minlength="8" required>
-                <br><br>
+                <input type="password" id="password" name="password" required minlength="8">
+                <br><span class="error-message" id="passwordError"></span><br>
+
                 <label for="passwordVerify">Verify Password*:</label>
-                <input type="password" id="passwordVerify" name="passwordVerify" minlength="8" required>
-                <br><br>
+                <input type="password" id="passwordVerify" name="passwordVerify" required minlength="8">
+                <br><span class="error-message" id="passwordVerifyError"></span><br>
+
                 <label for="firstName">First Name*:</label>
-                <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]+" title="First name must only contain letters." required>
-                <br><br>
+                <input type="text" id="firstName" name="firstName" required>
+                <br><span class="error-message" id="firstNameError"></span><br>
+
                 <label for="lastName">Last Name*:</label>
-                <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]+" title="Last name must only contain letters." required>
-                <br><br>
+                <input type="text" id="lastName" name="lastName" required>
+                <br><span class="error-message" id="lastNameError"></span><br>
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
-                <br><br>
+                <br><span class="error-message" id="emailError"></span><br>
+
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}" title="Phone number must be in (xxx) xxx-xxxx format.">
-                <br><br>
+                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="\(\d{3}\) \d{3}-\d{4}">
+                <br><span class="error-message" id="phoneNumberError"></span><br>
+
                 <label>Sign Up for Newsletter:</label>
-                <label for="newsletterYes">Yes</label>
-                <input type="radio" id="newsletterYes" name="signUpNewsletter" value="yes">
-                <label for="newsletterNo">No</label>
-                <input type="radio" id="newsletterNo" name="signUpNewsletter" value="no" checked>
+                <input type="radio" id="signupYes" name="signupNewsletter" value="yes">
+                <label for="signupYes">Yes</label>
+                <input type="radio" id="signupNo" name="signupNewsletter" value="no" checked>
+                <label for="signupNo">No</label>
                 <br><br>
-                <input type="submit" value="Register">
+
+                <input type="submit" value="Submit">
             </form>
-            <!-- Error display area -->
-            <div id="errorList"></div>
         </section>
 
-        <!-- Volunteer Form Section -->
-        <section id="volunteerForm">
-            <h2>Volunteers</h2>
-            <form>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name">
-                <br><br>
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name">
-                <br><br>
-                <input type="button" id="add_button" value="Add Volunteer">
-                <input type="button" id="delete_button" value="Delete Volunteer">
-                <br><br>
-                <textarea id="volunteerList" readonly></textarea>
-            </form>
+        <!-- Other sections of your homepage -->
+        <section class="row">
+            <div class="column">
+                <h2>Section 1</h2>
+                <p>Content for section 1...</p>
+            </div>
+            <div class="column">
+                <h2>Section 2</h2>
+                <p>Content for section 2...</p>
+            </div>
         </section>
+
+        <!-- Video Section -->
+        <div class="row">
+            <div class="column">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/T6vA3WZHltc?si=mv4-ksJXvVh4KqQa" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
     </main>
 
     <footer>
+        <p>&copy; 2024 Mommy and Me</p>
         <nav class="footer-nav">
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="aboutme.html" class="footer-link">About Me</a>
-            <a href="myinterests.html" class="footer-link">My Interests</a>
-            <a href="gallery.html" class="footer-link">Gallery</a>
-            <a href="contactme.html" class="footer-link">Contact Me</a>
+            <a href="policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
         </nav>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
     <script>
-        // JavaScript for handling form submission and displaying invitation message
-        document.getElementById('inviteForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+        // JavaScript for registration form validation
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-            // Get input field values
-            var recipientName = document.getElementById('recipientName').value;
-            var hostName = document.getElementById('hostName').value;
+            // Validate form inputs here
+            var isValid = true;
 
-            // Display invitation message section
-            var invitationMessageSection = document.getElementById('invitationMessage');
-            invitationMessageSection.style.display = 'block';
-
-            // Replace placeholder text with actual input values
-            document.getElementById('recipientNamePlaceholder').textContent = recipientName;
-            document.getElementById('hostNamePlaceholder').textContent = hostName;
-
-            // Optionally, you can clear the form inputs after submission
-            document.getElementById('inviteForm').reset();
-        });
-
-        // JavaScript for handling registration form submission and validation
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-
-            // Reset previous error messages
-            document.getElementById('errorList').innerHTML = '';
-
-            // Fetch form input values
-            var username = document.getElementById('username').value.trim();
-            var password = document.getElementById('password').value.trim();
-            var passwordVerify = document.getElementById('passwordVerify').value.trim();
-            var firstName = document.getElementById('firstName').value.trim();
-            var lastName = document.getElementById('lastName').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var phoneNumber = document.getElementById('phoneNumber').value.trim();
-            var signUpNewsletter = document.querySelector('input[name="signUpNewsletter"]:checked').value;
-
-            // Validate username (letters and numbers only)
+            // Example validation checks (modify as needed)
+            var username = document.getElementById('username').value;
             if (!/^[a-zA-Z0-9]+$/.test(username)) {
-                displayError('Username must only contain letters and numbers.', 'username');
-                return;
+                document.getElementById('usernameError').textContent = 'Username must contain only letters and numbers.';
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').textContent = '';
             }
 
-            // Validate password (minimum 8 characters)
+            var password = document.getElementById('password').value;
             if (password.length < 8) {
-                displayError('Password must be at least 8 characters long.', 'password');
-                return;
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').textContent = '';
             }
 
-            // Validate password verification
-            if (password !== passwordVerify) {
-                displayError('Passwords do not match.', 'passwordVerify');
-                return;
+            var passwordVerify = document.getElementById('passwordVerify').value;
+            if (passwordVerify.length < 8 || passwordVerify !== password) {
+                document.getElementById('passwordVerifyError').textContent = 'Passwords must match and be at least 8 characters long.';
+                isValid = false;
+            } else {
+                document.getElementById('passwordVerifyError').textContent = '';
             }
 
-            // Validate first name (text string)
+            var firstName = document.getElementById('firstName').value;
             if (!/^[a-zA-Z]+$/.test(firstName)) {
-                displayError('First name must only contain letters.', 'firstName');
-                return;
+                document.getElementById('firstNameError').textContent = 'First Name must contain only letters.';
+                isValid = false;
+            } else {
+                document.getElementById('firstNameError').textContent = '';
             }
 
-            // Validate last name (text string)
+            var lastName = document.getElementById('lastName').value;
             if (!/^[a-zA-Z]+$/.test(lastName)) {
-                displayError('Last name must only contain letters.', 'lastName');
-                return;
+                document.getElementById('lastNameError').textContent = 'Last Name must contain only letters.';
+                isValid = false;
+            } else {
+                document.getElementById('lastNameError').textContent = '';
             }
 
-            // Validate email format
-            if (email !== '' && !isValidEmail(email)) {
-                displayError('Invalid email format.', 'email');
-                return;
-            }
+            // Optionally add email and phone number validations similarly
 
-            // Validate phone number format
-            if (phoneNumber !== '' && !isValidPhoneNumber(phoneNumber)) {
-                displayError('Phone number must be in (xxx) xxx-xxxx format.', 'phoneNumber');
-                return;
+            // If form is valid, submit it or proceed to next step
+            if (isValid) {
+                // Submit form or proceed to next step
+                document.getElementById('registerForm').reset(); // Reset form after successful submission
+                alert('Form submitted successfully!');
+                // Redirect to confirmation page or perform other actions
+            } else {
+                // If form is invalid, focus on the first erroneous field
+                var errorInputs = document.querySelectorAll('.error-message');
+                for (var i = 0; i < errorInputs.length; i++) {
+                    if (errorInputs[i].textContent !== '') {
+                        errorInputs[i].previousElementSibling.focus(); // Focus on input field
+                        break;
+                    }
+                }
             }
-
-            // Display success message and optionally clear form inputs
-            alert('Registration successful!');
-            document.getElementById('registrationForm').reset();
         });
-
-        // Function to display error messages
-        function displayError(message, inputFieldId) {
-            var errorList = document.getElementById('errorList');
-            var errorMessage = document.createElement('p');
-            errorMessage.classList.add('error-message');
-            errorMessage.textContent = message;
-            errorList.appendChild(errorMessage);
-
-            // Set focus to the erroneous input field
-            document.getElementById(inputFieldId).focus();
-        }
-
-        // Function to validate email format
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // Function to validate phone number format (xxx) xxx-xxxx
-        function isValidPhoneNumber(phoneNumber) {
-            return /^\(\d{3}\) \d{3}-\d{4}$/.test(phoneNumber);
-        }
     </script>
 </body>
 
